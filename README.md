@@ -1,7 +1,7 @@
 # Automatic Language-guided Image Augmentation
 
 Official Repo for the paper "Diversify Your Vision Datasets with Automatic
-Diffusion-based Augmentation" [Link][Website][Blog]
+Diffusion-based Augmentation"
 
 ![Teaser](figures/teaser_w_caption.png)
 
