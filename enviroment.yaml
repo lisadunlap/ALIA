@@ -1,0 +1,29 @@
+name: ALIA
+channels:
+- pytorch
+- defaults
+dependencies:
+- pytorch
+- pip
+- torchvision
+- pandas
+- numpy
+- seaborn
+- pip:
+    - numpy
+    - clip
+    - matplotlib
+    - regex
+    - wilds
+    - omegaconf
+    - wandb
+    - scikit-image
+    - torch
+    - torchfile
+    - torchtext
+    - torchvision
+    - tqdm==4.48.2
+    - transformers
+    - attrdict
+    - wandb
+    - diffusers[torch]
