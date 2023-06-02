@@ -3,7 +3,8 @@ channels:
 - pytorch
 - defaults
 dependencies:
-- pytorch
+- python ==3.9
+- pytorch-cuda
 - pip
 - torchvision
 - pandas
@@ -22,8 +23,9 @@ dependencies:
     - torchfile
     - torchtext
     - torchvision
-    - tqdm==4.48.2
+    - tqdm
     - transformers
     - attrdict
     - wandb
     - diffusers[torch]
+    - tyro

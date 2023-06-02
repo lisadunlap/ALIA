@@ -1,4 +1,3 @@
-import torch
 import matplotlib.pyplot as plt
 from mpl_toolkits.axes_grid1 import ImageGrid
 import numpy as np
@@ -10,8 +9,8 @@ import os
 import io
 import wandb
 from PIL import Image
-from diffusers import StableDiffusionPipeline, StableDiffusionImg2ImgPipeline
-from args import Img2ImgSingleArgs
+from diffusers import StableDiffusionInstructPix2PixPipeline
+from args import InstructPix2PixSingleArgs
 import tyro
 
 def main(args):
@@ -20,18 +19,18 @@ def main(args):
         os.environ['WANDB_SILENT']="true"
 
     prompt_str = args.prompt.replace(' ', '_').replace("\'", "").replace(',', '')
-    wandb.init(project="Image-2-Image", name=f"{prompt_str}-{args.strength}-{args.guidance}", group=args.im_path, config=args, entity='lisadunlap')
+    wandb.init(project="InstructPix2Pix", name=f"{args.prompt}-{args.image_guidance}-{args.guidance}", config=args)
 
-    pipe = StableDiffusionImg2ImgPipeline.from_pretrained(args.model, torch_dtype=torch.float16, requires_safety_checker=False, safety_checker=None).to('cuda')
+    pipe = StableDiffusionInstructPix2PixPipeline.from_pretrained(args.model, torch_dtype=torch.float16).to('cuda')
 
     init_image = Image.open(args.im_path)
     prompt = args.prompt
     print(f"Editing image {args.im_path} with prompt: {args.prompt}")
     generated = []
     for i in range(args.n):
-        generated += pipe(prompt=prompt, image=init_image, strength=args.strength, guidance_scale=args.guidance, num_images_per_prompt=1).images
+        generated += pipe(prompt=prompt, image=init_image, image_guidance_scale=args.image_guidance, guidance_scale=args.guidance, num_images_per_prompt=1).images
                 
-    save_dir = f'{args.save_dir}/img2img/{prompt_str}/strength-{args.strength}_guidance-{args.guidance}'
+    save_dir = f'{args.save_dir}/instruct/{prompt_str}/strength-{args.strength}_guidance-{args.guidance}'
     if not os.path.exists(save_dir):
         os.makedirs(save_dir)
 
@@ -58,5 +57,5 @@ def main(args):
     wandb.log({f"Images": [wandb.Image(im, caption="Top: Output, Bottom: Input") for im in generated]})
 
 if __name__ == "__main__":
-    args = tyro.cli(Img2ImgSingleArgs)
+    args = tyro.cli(InstructPix2PixSingleArgs)
     main(args)
