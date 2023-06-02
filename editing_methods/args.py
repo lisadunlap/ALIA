@@ -72,25 +72,13 @@ class Img2ImgArgs(Img2ImgSingleArgs):
     """Where the dataset is stored."""
 
 @dataclass
-class InstructPix2PixArgs(Img2ImgArgs):
+class InstructPix2PixSingleArgs(Img2ImgArgs):
 
     image_guidance: float = 1.2
     """How faithful to stay to the image (>= 1)"""
 
-    prompt: str = 'put the {} in the wild'
+    prompt: str = 'put the {} in the snow.'
     """Prompt for image (e.g. put the {} in the wild). Use {} in place of the class name unless class_agnostic is set to True"""
-
-    dataset: str = 'Cub2011'
-    """Dataset to generate images for. We extract the class names from the class_names attribute."""
-
-    grid_log_freq: int = 100
-    """How often to log image grid."""
-
-    class_agnostic: bool = False
-    """Use class agnostic prompt."""
-
-    data_dir: str = '/shared/lisabdunlap/data'
-    """Where the dataset is stored."""
 
     im_path: str = './ex_imgs/giraffe.png'
     """Path to image you want to edit."""
@@ -103,3 +91,18 @@ class InstructPix2PixArgs(Img2ImgArgs):
 
     model: str = 'timbrooks/instruct-pix2pix'
     """Huggingface model_id"""
+
+@dataclass
+class InstructPix2PixArgs(InstructPix2PixSingleArgs):
+
+    dataset: str = 'Cub2011'
+    """Dataset to generate images for. We extract the class names from the class_names attribute."""
+
+    grid_log_freq: int = 100
+    """How often to log image grid."""
+
+    class_agnostic: bool = False
+    """Use class agnostic prompt."""
+
+    data_dir: str = '/shared/lisabdunlap/data'
+    """Where the dataset is stored."""

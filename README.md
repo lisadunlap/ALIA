@@ -28,6 +28,7 @@ Install the dependencies for our code using Conda. You may need to adjust the en
   ```
   conda env create -f environment.yaml
   conda activate ALIA
+  pip install -e .
   ```
 
 ## Generating Images

@@ -46,6 +46,13 @@ def main(args):
         elif args.prompt and not args.class_agnostic:
             prompt = args.prompt.format(re.sub(pattern, '', c).replace('_', ' ').replace('.', ''))
         print(f"Prompt: {prompt} {type(prompt)}")
+
+        # this is a hack for Cub
+        if 'Whip poor Will' in prompt:
+            prompt = prompt.replace('Whip poor Will', 'Eastern whip-poor-will')
+        elif 'Geococcyx' in prompt:
+            prompt = prompt.replace('Geococcyx', 'Roadrunner')
+            
         generated = pipe(prompt=prompt, image=init_image, strength=args.strength, guidance_scale=args.guidance, num_images_per_prompt=args.n).images
                     
         if not os.path.exists(args.save_dir):

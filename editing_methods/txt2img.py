@@ -46,6 +46,12 @@ def main(args):
     for c in classnames:
         prompt = prompts[args.dataset].format(c) if args.prompt is None else args.prompt.format(c)
 
+        # this is a hack for Cub
+        if 'Whip poor Will' in prompt:
+            prompt = prompt.replace('Whip poor Will', 'Eastern whip-poor-will')
+        elif 'Geococcyx' in prompt:
+            prompt = prompt.replace('Geococcyx', 'Roadrunner')
+
         print(f"Prompt: {prompt} {type(prompt)}")
         n = args.n if not args.test else 2
         generated = []

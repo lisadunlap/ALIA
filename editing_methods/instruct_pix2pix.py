@@ -16,20 +16,6 @@ import tyro
 from helpers.load_dataset import get_dataset
 from args import InstructPix2PixArgs
 
-# parser = argparse.ArgumentParser(description='Dataset Understanding')
-# parser.add_argument('--prompt', type=str, help='prompts')
-# parser.add_argument('--dataset', type=str, default='Cub2011', help='dataset')
-# parser.add_argument('--save-dir', type=str, default='/shared/lisabdunlap/edited', help='save directory')
-# parser.add_argument('--image-guidance', type=float, default=1.2, help='how faithful to stay to the image (>= 1)')
-# parser.add_argument('--guidance', type=float, default=5.0, help='guidance of the prompt')
-# parser.add_argument('--test', action='store_true', help='test mode')
-# parser.add_argument('--n', type=int, default=1, help='number of images to generate')
-# parser.add_argument('--grid-log-freq', type=int, default=100, help='how often to log image grid')
-# parser.add_argument('--wandb-silent', action='store_true')
-# parser.add_argument('--seed', type=int, default=0, help='random seed (default: 0)')
-# parser.add_argument('--class-agnostic', action='store_true', help='whether to use class agnostic prompts')
-# args = parser.parse_args()
-
 prompts = {
     "Cub2011": "put the {} bird in the wild",
     "iWildCamMini": "put the {} in the wild",
@@ -59,6 +45,13 @@ def main(args):
             prompt = args.prompt.format(re.sub(pattern, '', c).replace('_', ' ').replace('.', ''))
         else:
             prompt = prompts[args.dataset].format(re.sub(pattern, '', c).replace('_', ' ').replace('.', '')) if args.prompt is None else args.prompt
+
+        # this is a hack for Cub
+        if 'Whip poor Will' in prompt:
+            prompt = prompt.replace('Whip poor Will', 'Eastern whip-poor-will')
+        elif 'Geococcyx' in prompt:
+            prompt = prompt.replace('Geococcyx', 'Roadrunner')
+            
         generated = pipe(prompt=prompt, image=init_image, image_guidance_scale=args.image_guidance, guidance_scale=args.guidance, num_images_per_prompt=args.n).images
                     
         if not os.path.exists(args.save_dir):
