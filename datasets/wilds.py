@@ -137,16 +137,6 @@ class WILDS:
         )
 
         return results, results_str
-    
-class WILDSFine(WILDS):
-    """
-    Specific subset of WILDS testing fine-grained classification on obscure rodent species.
-    """
-    def __init__(self, root='/work/datasets/iwildcam_v2.0/train', split='train', transform=None):
-        super().__init__(root=root, split=split, transform=transform)
-        self.class_names = ['background', 'central American agouti', 'Gambian pouched rat', 'Didelphis', "Carruther's mountain squirrel", 'Paca']
-        print(f"Num samples per class {Counter(self.labels)}")
-
 
 class WILDSDiffusion(torchvision.datasets.ImageFolder):
 

@@ -16,7 +16,7 @@ import datasets
 from datasets.Waterbirds import Waterbirds, WaterbirdsInverted
 from datasets.base import *
 # from wilds.datasets.iwildcam_dataset import IWildCamDataset
-from datasets.wilds import WILDS, WILDSDiffusion, Wilds, WILDSFine
+from datasets.wilds import WILDS, WILDSDiffusion, Wilds
 from datasets.cub import Cub2011, Cub2011Painting, Cub2011Diffusion, Cub2011Seg, newCub2011
 from datasets.planes import Planes
 # from cutmix.cutmix import CutMix
@@ -156,65 +156,6 @@ def get_val_transform(dataset_name="Imagenet", model=None):
     
     return transforms.Compose(transform_list)
 
-def get_dataset(dataset_name, transform, val_transform, root='/shared/lisabdunlap/data'):
-    if dataset_name == "Waterbirds": # change these data paths
-        trainset = Waterbirds(root=root, split='train', transform=transform)
-        valset = Waterbirds(root=root, split='val', transform=transform)
-        idxs = valset.get_subset(groups=[0,3], num_per_class=100)
-        valset = torch.utils.data.Subset(trainset, idxs) 
-        testset = Waterbirds(root=root, split='test', transform=transform)
-    elif dataset_name == "Waterbirds100": # change these data paths
-        trainset = Waterbirds(root=root, split='train', transform=transform)
-        valset = Waterbirds(root=root, split='val', transform=transform)
-        testset = Waterbirds(root=root, split='test', transform=transform)
-    elif dataset_name == "iWildCam":
-        trainset = Wilds(root=root, split='train', transform=transform)
-        valset = Wilds(root=root, split='val', transform=transform)
-        testset = Wilds(root=root, split='test', transform=transform)
-    elif dataset_name == "iWildCamMini":
-        trainset = WILDS(root=f'{root}/iwildcam_v2.0/train', split='train', transform=transform)
-        valset = WILDS(root=f'{root}/iwildcam_v2.0/train', split='val', transform=transform)
-        testset = WILDS(root=f'{root}/iwildcam_v2.0/train', split='test', transform=transform)
-    elif dataset_name == "iWildCamMiniExtra":
-        trainset = WILDS(root=f'{root}/iwildcam_v2.0/train', split='train', transform=transform)
-        trainset_extra = WILDS(root=f'{root}/iwildcam_v2.0/train', split='train_extra', transform=transform)
-        trainset = CombinedDataset([trainset, trainset_extra])
-        valset = WILDS(root=f'{root}/iwildcam_v2.0/train', split='val', transform=transform)
-        testset = WILDS(root=f'{root}/iwildcam_v2.0/train', split='test', transform=transform)
-    elif dataset_name == 'Cub2011':
-        trainset = Cub2011(root=root, subset=False, split='train', transform=transform)
-        valset = Cub2011(root=root, split='val', transform=transform)
-        testset = valset
-    elif dataset_name == 'newCub2011':
-        trainset = newCub2011(root=root, split='train', transform=transform)
-        valset = newCub2011(root=root, split='val', transform=transform)
-        testset = valset
-    # elif dataset_name == 'Cub2011Paintings':
-    #     trainset = Cub2011Painting(root=root, subset=False, split='train', transform=transform)
-    #     valset = Cub2011(root=root, split='val', transform=transform)
-    elif dataset_name == 'Cub2011Seg':
-        trainset = Cub2011Seg(root='/shared/lisabdunlap/data', subset=False, split='train', transform=transform)
-        valset = Cub2011Seg(root='/shared/lisabdunlap/data', split='val', transform=transform)
-        testset = valset
-    elif dataset_name == 'Cub2011Extra':
-        trainset = Cub2011(root=root, subset=False, split='train', transform=transform)
-        extraset = Cub2011(root=root, subset=False, split='extra', transform=transform)
-        trainset = CombinedDataset([trainset, extraset])
-        valset = Cub2011(root=root, split='val', transform=transform)
-        testset = valset
-    elif dataset_name == 'newCub2011Extra':
-        trainset = newCub2011(root=root, subset=False, split='train', transform=transform)
-        extraset = newCub2011(root=root, subset=False, split='extra', transform=transform)
-        trainset = CombinedDataset([trainset, extraset])
-        valset = newCub2011(root=root, split='val', transform=transform)
-        testset = valset
-    elif dataset_name == 'Planes' or dataset_name == 'PlanesExtra':
-        print("ROOT ", root)
-        trainset = Planes(split='train', transform=transform)
-        valset = Planes(split='val', transform=val_transform)
-        testset = Planes(split='test', transform=val_transform)
-    return trainset, valset, testset
-
 def new_get_dataset(dataset_name, transform, val_transform, root='/shared/lisabdunlap/data', embedding_root=None):
     if dataset_name == "Waterbirds": # change these data paths
         trainset = Waterbirds(root=root, split='train', transform=transform)
@@ -230,13 +171,6 @@ def new_get_dataset(dataset_name, transform, val_transform, root='/shared/lisabd
         testset = WILDS(root=f'{root}/iwildcam_v2.0/train', split='test', transform=val_transform)
         extraset = WILDS(root=f'{root}/iwildcam_v2.0/train', split='train_extra', transform=transform)
         if dataset_name == 'iWildCamMiniExtra':
-            trainset = CombinedDataset([trainset, extraset])
-    elif dataset_name == "iWildCamMini-fine" or dataset_name == "iWildCamMiniExtra-fine":
-        trainset = WILDSFine(root=f'{root}/iwildcam_v2.0/train', split='train_fine', transform=transform)
-        valset = WILDSFine(root=f'{root}/iwildcam_v2.0/train', split='val_fine', transform=val_transform)
-        testset = WILDSFine(root=f'{root}/iwildcam_v2.0/train', split='test_fine', transform=val_transform)
-        extraset = WILDSFine(root=f'{root}/iwildcam_v2.0/train', split='train_extra_fine', transform=transform)
-        if dataset_name == 'iWildCamMiniExtra-fine':
             trainset = CombinedDataset([trainset, extraset])
     elif dataset_name == 'Cub2011' or dataset_name == 'Cub2011Extra':
         print("ROOT yo ", root)
