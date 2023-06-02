@@ -16,7 +16,7 @@ import datasets
 from datasets.Waterbirds import Waterbirds, WaterbirdsInverted
 from datasets.base import *
 # from wilds.datasets.iwildcam_dataset import IWildCamDataset
-from datasets.wilds import WILDS, WILDSDiffusion, Wilds, WILDSFine
+from datasets.wilds import WILDS, WILDSDiffusion, Wilds
 from datasets.cub import Cub2011, Cub2011Painting, Cub2011Diffusion, Cub2011Seg, newCub2011
 from datasets.planes import Planes
 # from cutmix.cutmix import CutMix
@@ -230,13 +230,6 @@ def new_get_dataset(dataset_name, transform, val_transform, root='/shared/lisabd
         testset = WILDS(root=f'{root}/iwildcam_v2.0/train', split='test', transform=val_transform)
         extraset = WILDS(root=f'{root}/iwildcam_v2.0/train', split='train_extra', transform=transform)
         if dataset_name == 'iWildCamMiniExtra':
-            trainset = CombinedDataset([trainset, extraset])
-    elif dataset_name == "iWildCamMini-fine" or dataset_name == "iWildCamMiniExtra-fine":
-        trainset = WILDSFine(root=f'{root}/iwildcam_v2.0/train', split='train_fine', transform=transform)
-        valset = WILDSFine(root=f'{root}/iwildcam_v2.0/train', split='val_fine', transform=val_transform)
-        testset = WILDSFine(root=f'{root}/iwildcam_v2.0/train', split='test_fine', transform=val_transform)
-        extraset = WILDSFine(root=f'{root}/iwildcam_v2.0/train', split='train_extra_fine', transform=transform)
-        if dataset_name == 'iWildCamMiniExtra-fine':
             trainset = CombinedDataset([trainset, extraset])
     elif dataset_name == 'Cub2011' or dataset_name == 'Cub2011Extra':
         print("ROOT yo ", root)
