@@ -46,7 +46,7 @@ You should get a WandB run like [this](https://wandb.ai/lisadunlap/Text-2-Image/
 ```
 python editing_methods/img2img.py --dataset Cub2011 --prompt "a photo of a {} bird on rocks." --n 2
 ```
-This command should output something like [this](https://wandb.ai/clipinvariance/img2img/runs/cvl0n538).
+This command should output something like [this](https://wandb.ai/clipinvariance/img2img/runs/cvl0n538). For the image editing methods, we save the edits of image at index i in the training set as i-0.png
 
 ## WandB Projects
 
