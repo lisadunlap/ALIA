@@ -24,6 +24,8 @@ prompts = {
 
 def main(args):
 
+    np.random.seed(0)
+
     if args.wandb_silent:
         os.environ['WANDB_SILENT']="true"
 

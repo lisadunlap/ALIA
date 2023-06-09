@@ -1,0 +1,24 @@
+base_config: configs/Cub2011/base.yaml
+proj: ALIA-Cub2011
+name: Cub2011-ALIA
+
+data: 
+  base_dataset: Cub2011
+  # base_root: /work/lisabdunlap/DatasetUnderstanding/data/edited/Cub2011
+  extra_dataset: Img2ImgDataset
+  extra_root: 
+  - /shared/lisabdunlap/edited/img2img/newCub2011/a_photo_of_a_{}_bird_flying/strength-0.6_guidance-7.5
+  - /shared/lisabdunlap/edited/img2img/newCub2011/a_photo_of_a_{}_bird_interacting_with_flowers/strength-0.6_guidance-7.5
+  - /shared/lisabdunlap/edited/img2img/newCub2011/a_photo_of_a_{}_bird_in_the_water/strength-0.6_guidance-7.5
+  - /shared/lisabdunlap/edited/img2img/newCub2011/a_photo_of_a_{}_bird_on_a_branch/strength-0.6_guidance-7.5
+  - /shared/lisabdunlap/edited/img2img/newCub2011/a_photo_of_a_{}_bird_on_rocks/strength-0.6_guidance-7.5
+  - /shared/lisabdunlap/edited/img2img/newCub2011/a_photo_of_a_{}_bird_perched_on_a_birdfeeder/strength-0.6_guidance-7.5
+  - /shared/lisabdunlap/edited/img2img/newCub2011/a_photo_of_a_{}_bird_perched_on_a_fence/strength-0.6_guidance-7.5
+  
+filter:
+  model: ViT-L/14 # CLIP model
+  prompt: "a photo of a bird"
+  negative_prompts: ["a photo of an object", "a photo of geometric shapes", "a photo", "an image", "a painting", "a photo of a person", "a cartoon of a bird"]
+  load: True # set this to true after you comput the embeddings once 
+  per_img: False # set this to true if you are doing an img2img method
+  checkpoint_name: 'ckpt-Cub2011-none-resnet50-0.pth'

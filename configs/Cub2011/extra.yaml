@@ -1,0 +1,8 @@
+base_config: configs/Cub2011/base.yaml
+name: Cub2011-extra
+
+data: 
+  base_dataset: Cub2011Extra
+
+hps:
+  lr: 0.01
