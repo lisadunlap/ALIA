@@ -33,7 +33,7 @@ Install the dependencies for our code using Conda. You may need to adjust the en
 
 ## Generating Images
 
-All editing methods are located in [editing_methods](./editing_methods) and use the Huggingface Diffusers library. We also use the fabulous command line interface library [tyro](https://github.com/brentyi/tyro), just add `--help` flag to your command to see all the arguments in immagulate formatting.
+All editing methods are located in [editing_methods](./editing_methods) and use the Huggingface Diffusers library. We also use the [tyro](https://github.com/brentyi/tyro) CLI, just add `--help` flag to your command to see all the arguments in immaculate formatting.
 
 **Per Example:** if you want to generate a ton of images given a prompt or only edit one image, use [txt2img_example.py](./editing_methods/txt2img_example.py) or [img2img_example.py](./editing_methods/img2img_example.py). 
 ```
