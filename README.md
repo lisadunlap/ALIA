@@ -13,7 +13,7 @@ article{dunlap2023alia,
 }
 ```
 
-![Teaser](figures/teaser_w_caption.png)
+![Teaser](figures/method.png)
 
 ## Code release in progress.... (Yell at me if its not up by mid-June)
 Right now the pipeline for recreatig CUB is set up, the rest of the experiments to come. Please raise an issue if something isnt working :)
@@ -64,7 +64,7 @@ Apply a traditional data augmentation technique by setting `data.augmentation=cu
 
 ## WandB Projects
 
-**Datasets of Generated data [here](https://wandb.ai/clipinvariance/ALIA).** Each wandb artifact has the hyperparameters and prompt used to create it. You can download the images with
+**Datasets of Generated data [here](https://wandb.ai/clipinvariance/ALIA) under Artifacts.** Each wandb artifact has the hyperparameters and prompt used to create it. You can download the images with
 ```
 import wandb
 run = wandb.init()
