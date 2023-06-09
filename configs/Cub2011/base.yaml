@@ -1,0 +1,9 @@
+base_config: configs/Cub2011/base.yaml
+proj: DiffusionAugmentation-Cub2011
+name: Cub2011
+
+data: 
+  base_dataset: Cub2011
+
+hps:
+  lr: 0.01

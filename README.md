@@ -46,8 +46,30 @@ You should get a WandB run like [this](https://wandb.ai/lisadunlap/Text-2-Image/
 ```
 python editing_methods/img2img.py --dataset Cub2011 --prompt "a photo of a {} bird on rocks." --n 2
 ```
-This command should output something like [this](https://wandb.ai/clipinvariance/img2img/runs/cvl0n538). For the image editing methods, we save the edits of image at index i in the training set as i-0.png
+This command should output something like [this](https://wandb.ai/lisadunlap/Image-2-Image/runs/cvl0n538). For the image editing methods, we save the edits of image at index i in the training set as i-0.png
+
+## Filtering
+
+Once your data is generated, you can determine which indices to filter out by running
+```
+python filtering/filter.py -config configs/Cub2011/alia.yaml
+```
+This will save the indexes of the images filtered by the semantic and confidence-based filter in `filering_results`, along with samples of images filtered out. 
+
+## Training
+To train the base models or the models with augmented data, simply run the appropriate yaml file from the configs folder. For instance to train Cub2011 baseline, use the [base config](configs/Cub2011/base.yaml)
+```
+python main.py --config configs/Cub2011/base.yaml
+```
+Apply a traditional dataa augmentation technique by setting `data.augmentation=cutmix`. Available data augmentations are in the [load_dataset file](helpers/load_dataset.py).
 
 ## WandB Projects
 
-Generated Data for [Txt2Img](https://wandb.ai/lisadunlap/Text-2-Image), [Img2Img](https://wandb.ai/lisadunlap/Image-2-Image), and [InstructPix2Pix](https://wandb.ai/lisadunlap/InstructPix2Pix)
+**Datasets of Generated data [here](https://wandb.ai/clipinvariance/ALIA).** Each wandb artifact has the hyperparameters and prompt used to create it. You can download the images with
+```
+import wandb
+run = wandb.init()
+artifact = run.use_artifact('clipinvariance/ALIA/cub_generic:v0', type='dataset')
+artifact_dir = artifact.download()
+```
+Generated Data Examples for [Txt2Img](https://wandb.ai/lisadunlap/Text-2-Image), [Img2Img](https://wandb.ai/lisadunlap/Image-2-Image), and [InstructPix2Pix](https://wandb.ai/lisadunlap/InstructPix2Pix)

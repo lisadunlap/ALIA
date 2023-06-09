@@ -29,3 +29,6 @@ dependencies:
     - wandb
     - diffusers[torch]
     - tyro
+    - git+https://github.com/ildoonet/cutmix
+    - git+https://github.com/openai/CLIP.git
+    - cleanlab

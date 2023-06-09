@@ -19,7 +19,7 @@ from datasets.base import *
 from datasets.wilds import WILDS, WILDSDiffusion, Wilds
 from datasets.cub import Cub2011, Cub2011Painting, Cub2011Diffusion, Cub2011Seg, newCub2011
 from datasets.planes import Planes
-# from cutmix.cutmix import CutMix
+from cutmix.cutmix import CutMix
 
 def get_config(name="ColoredMNIST"):
     if "ColoredMNIST" in name:
@@ -206,11 +206,14 @@ def get_filtered_dataset(args, transform, val_transform):
     trainset, valset, testset, extraset = new_get_dataset(args.data.base_dataset, transform, val_transform, root=args.data.base_root, embedding_root=args.data.embedding_root if args.model == 'MLP' else None)
     if args.data.extra_dataset and not args.eval_only:
         dataset = get_edited_dataset(args, transform)
-        if args.data.subsample:
-            dataset = subsample(extraset, dataset) # makesure we are sampling the same number of images as the extraset
+        if args.data.num_extra == 'extra':
+            dataset = subsample(extraset, dataset) # make sure we are sampling the same number of images as the extraset
+        elif type(args.data.num_extra) == int: # randomly sample x images from the dataset
+            dataset = Subset(dataset, np.random.choice(len(dataset), args.data.num_extra, replace=False))
         trainset = CombinedDataset([trainset, dataset])
-        # if args.data.augmentation == 'cutmix':
-        #     trainset = CutMix(trainset, num_class=len(trainset.classes), beta=1.0, prob=0.5, num_mix=2).dataset
+
+        if args.data.augmentation == 'cutmix': # hacky way to add cutmix augmentation
+            trainset = CutMix(trainset, num_class=len(trainset.classes), beta=1.0, prob=0.5, num_mix=2).dataset
     return trainset, valset, testset
 
 def get_edited_dataset(args, transform, full=False):
