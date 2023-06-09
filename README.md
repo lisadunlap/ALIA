@@ -15,9 +15,8 @@ article{dunlap2023alia,
 
 ![Teaser](figures/teaser_w_caption.png)
 
-## Code coming soon! (Yell at me if its not up by mid-June)
-
-As a teaser while I clean up the filtering/training part, here's the code for generating/editing images:
+## Code release in progress.... (Yell at me if its not up by mid-June)
+Right now the pipeline for recreatig CUB is set up, the rest of the experiments to come. Please raise an issue if something isnt working :)
 
 ----------------------------
 
@@ -61,7 +60,7 @@ To train the base models or the models with augmented data, simply run the appro
 ```
 python main.py --config configs/Cub2011/base.yaml
 ```
-Apply a traditional dataa augmentation technique by setting `data.augmentation=cutmix`. Available data augmentations are in the [load_dataset file](helpers/load_dataset.py).
+Apply a traditional data augmentation technique by setting `data.augmentation=cutmix`. Available data augmentations are in the [load_dataset file](helpers/load_dataset.py). The real data baseline is the [extra.yaml file](configs/Cub2011/extra.yaml)
 
 ## WandB Projects
 
