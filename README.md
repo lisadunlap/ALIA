@@ -34,24 +34,22 @@ Install the dependencies for our code using Conda. You may need to adjust the en
 
 ## Prompt Generation
  
-#### Captioning
-We use the BLIP captioning model to caption the entire dataset. For example:
+**Captioning.** We use the BLIP captioning model to caption the entire dataset. For example:
 ```
 python caption.py --config configs/Cub2011/base.yaml
 ```
 This should save your captions [here](captions/Cub2011.csv)
 
-#### LLM Summarization
-In our paper we use GPT-4 to summarize the domains from the captions, but we also offer [Vicuna](https://chat.lmsys.org/) support for everyone who doesn't want to give money to OpenAI. You can download the weights [here](https://github.com/lm-sys/FastChat/tree/main#vicuna-weights) (we use the 13b parameter model).
+**LLM Summarization.** In our paper we use GPT-4 to summarize the domains from the captions, but we also offer [Vicuna](https://chat.lmsys.org/) support for everyone who doesn't want to give money to OpenAI. You can download the weights [here](https://github.com/lm-sys/FastChat/tree/main#vicuna-weights) (we use the 13b parameter model).
 
 To use Vicuna, first `pip3 install fastchat`
 
-To play around with it, you can do:
+To play around with it, run:
 ```
 python huggingface_api.py message="Hi! How are you doing today?"
 ```
 
-To summarize a captioned dataset (we assume you have already generated the captions)
+To summarize a captioned dataset (we assume you have already generated the captions), run:
 ```
 python prompt_generation.py --config configs/Cub2011/base.yaml
 ```
