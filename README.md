@@ -92,7 +92,7 @@ Apply a traditional data augmentation technique by setting `data.augmentation=cu
 
 ## WandB Projects
 
-**Datasets of Generated data [here](https://wandb.ai/clipinvariance/ALIA) under Artifacts.** Each wandb artifact has the hyperparameters and prompt used to create it. You can download the images with
+**Datasets of Generated data [here](https://wandb.ai/clipinvariance/ALIA) under the 'Artifacts' tab.** Each wandb artifact has the hyperparameters and prompt used to create it. You can download the images with
 ```
 import wandb
 run = wandb.init()
