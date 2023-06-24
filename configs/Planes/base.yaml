@@ -1,0 +1,17 @@
+base_config: configs/Planes/base.yaml # config to inheit params from (should be dataset specific)
+proj: ALIA-Planes # wandb project
+name: Planes # name of dataset
+
+epochs: 100
+model: resnet18
+
+data: 
+  base_dataset: Planes
+  # base_root: /work/datasets/iwildcam_v2.0/train
+  extraset_dataset: PlanesExtra
+  extraset_root: /shared/lisabdunlap/vl-attention
+  extra_classes: ['airbus', 'boeing']
+  # generated_classes: ['empty scene', 'animal', 'animal', 'animal', 'animal', 'animal', 'animal']
+
+hps:
+  lr: 0.0005

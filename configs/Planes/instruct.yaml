@@ -1,0 +1,27 @@
+base_config: configs/Planes/base.yaml # config to inheit params from (should be dataset specific)
+proj: DiffusionAugmentation-Planes # wandb project
+name: Planes-Instruct # name of dataset
+
+epochs: 100
+model: resnet18
+
+data: 
+  base_dataset: Planes
+  extra_dataset: Img2ImgDataset
+  extra_root: 
+  - /shared/lisabdunlap/edited/instruct/Planes/{}_airliner_on_airport_tarmac,_surrounded_by_buildings_and_other_infrastructure/strength-1.2_guidance-5.0
+  - /shared/lisabdunlap/edited/instruct/Planes/put_the_airplane_parked_on_the_runway,_grass_and_trees_in_the_backdrop/strength-1.3_guidance-5.0
+  - /shared/lisabdunlap/edited/instruct/Planes/{}_airplane_in_mid-flight,_landing_gear_deployed_against_a_clear_sky/strength-1.2_guidance-5.0
+  - /shared/lisabdunlap/edited/instruct/Planes/put_the_{}_airliner_in_the_grass/strength-1.2_guidance-5.0
+  extra_classes: ['airbus', 'boeing']
+
+hps:
+  lr: 0.001
+
+filter:
+  model: ViT-L/14 # CLIP model
+  prompt: "a photo of an airplane"
+  negative_prompts: ["a photo of an object", "a photo of geometric shapes", "a photo", "an image", "a painting", "a cartoon of an airplane", "artwork of an airplane", "a black iamge"]
+  load: True # set this to true after you comput the embeddings once 
+  per_img: True # set this to true if you are doing an img2img method
+  checkpoint_name: 'ckpt-Planes-none-filtered-resnet18-2.pth'

@@ -3,6 +3,8 @@
 Official Repo for the paper ["Diversify Your Vision Datasets with Automatic
 Diffusion-based Augmentation"](https://arxiv.org/abs/2305.16289)
 
+If reading isn't your jam, checkout our TL;DR website [here](https://lisadunlap.github.io/alia-website/) and if you find our repo/work useful, we take donations in the form of citations:
+
 ```
 article{dunlap2023alia,
   author    = {Dunlap, Lisa and Umino, Alyssa and Zhang, Han and Yang, Jiezhi and Gonzalez, Joseph and Darrell, Trevor},
@@ -29,6 +31,32 @@ Install the dependencies for our code using Conda. You may need to adjust the en
   conda activate ALIA
   pip install -e .
   ```
+
+### Prompt Generation
+ 
+#### Captioning
+We use the BLIP captioning model to caption the entire dataset. For example:
+```
+python caption.py --config configs/Cub2011/base.yaml
+```
+This should save your captions [here](captions/Cub2011.csv)
+
+### LLM Summarization
+
+In our paper we use GPT-4 to summarize the domains from the captions, but we also offer [Vicuna](https://chat.lmsys.org/) support for everyone who doesn't want to give money to OpenAI. You can download the weights [here](https://github.com/lm-sys/FastChat/tree/main#vicuna-weights) (we use the 13b parameter model).
+
+To use Vicuna, first `pip3 install fastchat`
+
+To play around with it, you can do:
+```
+python huggingface_api.py message="Hi! How are you doing today?"
+```
+
+To summarize a captioned dataset (we assume you have already generated the captions)
+```
+python prompt_generation.py --config configs/Cub2011/base.yaml
+```
+We naively sample 20 captions so we fit in the context length but we highly encourge someone to come up with a better method for this :)
 
 ## Generating Images
 
