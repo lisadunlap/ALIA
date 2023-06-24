@@ -28,4 +28,4 @@ class CatsDogs:
             img = self.transform(img)
         label = self.targets[idx]
         domain = self.domains[idx]
-        return img, label
+        return img, label, domain, domain

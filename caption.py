@@ -20,12 +20,9 @@ import pandas as pd
 # from models import *
 import datasets
 import models
-from utils import evaluate, read_unknowns, nest_dict, flatten_config
+from utils import read_unknowns, nest_dict, flatten_config
 # from wandb_utils import WandbData
-from helpers.clip_eval import zeroshot_classifier
-from helpers.constants import imagenet_classes, imagenet_templates
-from helpers.load_dataset import  get_train_transform, get_filtered_dataset, get_val_transform
-from datasets.wilds import wilds_eval
+from helpers.load_dataset import get_filtered_dataset
 
 parser = argparse.ArgumentParser(description='Dataset Understanding')
 parser.add_argument('--config', default='configs/base.yaml', help="config file")
@@ -58,6 +55,8 @@ np.random.seed(args.seed)
 augmentation = 'none' if not args.data.augmentation else args.data.augmentation
 augmentation = f'{augmentation}-filtered' if args.data.filter else f'augmentation-unfiltered'
 
+run = wandb.init(project=args.proj, group='captions', config=flatten_config(args))
+
 # Data
 print('==> Preparing data..')
 # trainset, valset, testset = get_dataset(args.data.base_dataset, transform)
@@ -68,7 +67,7 @@ device = "cuda"
 processor = BlipProcessor.from_pretrained("Salesforce/blip-image-captioning-large")
 model = BlipForConditionalGeneration.from_pretrained("Salesforce/blip-image-captioning-large").to(device)
 
-results = {"idx": [], "target": [], "captions": []}
+results = {"idx": [], "target": [], "captions": [], "path": []}
 for i, (img, target, _, _) in enumerate(trainset):
     # unconditional image captioning
     # if target == 0:
@@ -81,8 +80,20 @@ for i, (img, target, _, _) in enumerate(trainset):
     results["idx"].append(i)
     results["target"].append(target)
     results["captions"].append(output)
+    results["path"].append(trainset.samples[i][0])
 
-pd.DataFrame(results).to_csv(f"results-{args.name}.csv")
+caption_df = pd.DataFrame(results)
+caption_df.to_csv(f"captions/{args.name}.csv")
+
+# visualize(captions, trainset)
+captions = caption_df["captions"].tolist()
+# sample = np.random.choice(len(captions), 10, replace=False)
+# wandb.log({"image_caption_pairs": [wandb.Image(trainset[idx][0], caption=captions[idx]) for idx in sample]})
+caption_df['image'] = [wandb.Image(trainset[idx][0], caption=captions[idx]) for idx in range(len(captions))]
+wandb.log({"all_captions": wandb.Table(dataframe=caption_df[['idx', 'target', 'captions', 'image']])})
+
+
+
 # # conditional image captioning
 # text = "a camera trap photo containing"
 # inputs = processor(raw_image, text, return_tensors="pt").to(device)

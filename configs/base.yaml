@@ -36,3 +36,26 @@ hps:
   lr: 0.01
   weight_decay: 0.0001
   lr_scheduler: cosine
+
+summarize:
+  captions_path: false # path to captions file
+  prefix: 'a photo of a bird'
+
+# vicuna args
+cpu_offloading: false
+debug: false
+device: 'cuda'
+gptq_act_order: false
+gptq_ckpt: None
+gptq_groupsize: -1
+gptq_wbits: 16
+gpus: None
+load_8bit: false
+max_gpu_memory: '10GB'
+max_new_tokens: 512
+model_path: 'lmsys/vicuna-13b-v1.3'
+num_gpus: 4
+repetition_penalty: 1.0
+revision: 'main'
+temperature: 1.0
+message: 'hello, how are you?'

@@ -1,5 +1,5 @@
 base_config: configs/Cub2011/base.yaml
-proj: DiffusionAugmentation-Cub2011
+proj: ALIA-Cub2011
 name: Cub2011
 
 data: 
