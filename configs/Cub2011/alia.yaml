@@ -21,4 +21,4 @@ filter:
   negative_prompts: ["a photo of an object", "a photo of geometric shapes", "a photo", "an image", "a painting", "a photo of a person", "a cartoon of a bird"]
   load: True # set this to true after you comput the embeddings once 
   per_img: False # set this to true if you are doing an img2img method
-  checkpoint_name: 'ckpt-Cub2011-none-resnet50-0.pth'
+  checkpoint_name: 'ckpt-Cub2011-none-filtered-resnet50-0-0.01-0.0001/best.pth'

@@ -20,11 +20,10 @@ from mpl_toolkits.axes_grid1 import ImageGrid
 import datasets
 import models
 from utils import nest_dict, read_unknowns, flatten_config
-from helpers.load_dataset import get_train_transform, get_dataset
 # from filtering.filtering_utils import get_clip_features, get_features, load_checkpoint
 from cleanlab.count import get_confident_thresholds
 from datasets.base import CombinedDataset
-
+from helpers.load_dataset import get_train_transform, get_dataset
 
 parser = argparse.ArgumentParser(description='Dataset Understanding')
 parser.add_argument('--config', default='configs/base.yaml', help="config file")
@@ -125,19 +124,18 @@ def get_clip_features(model, loader):
     model.eval()
     all_features = []
     all_labels = []
-    all_groups, all_domains = [], []
+    all_groups = []
     
     with torch.no_grad():
         for batch in tqdm(loader):
-            images, labels, groups, domains = batch
+            images, labels, groups = batch
             features = model.encode_image(images.to(device))
 
             all_features.append(features)
             all_labels.append(labels)
             all_groups.append(groups)
-            all_domains.append(domains)
 
-    return torch.cat(all_features).cpu(), torch.cat(all_labels).cpu(), torch.cat(all_groups).cpu(), torch.cat(all_domains).cpu()
+    return torch.cat(all_features).cpu(), torch.cat(all_labels).cpu(), torch.cat(all_groups).cpu()
 
 # get cosine similarity per class between dataset and base
 def get_cosine_similarity(embeddings, labels, base_embeddings, base_labels):
@@ -239,10 +237,10 @@ def get_features(model, loader):
 
 if not args.filter.load:
     # compute clip embeddings
-    train_emb, train_labels, train_groups, train_domains = get_clip_features(clip_model, clip_trainloader)
-    aug_emb, aug_labels, aug_groupds, aug_domains = get_clip_features(clip_model, clip_augloader)
-    val_emb, val_labels, val_groups, val_domains = get_clip_features(clip_model, clip_valloader)
-    test_emb, test_labels, test_groupds, test_domains = get_clip_features(clip_model, clip_testloader)
+    train_emb, train_labels, train_groups = get_clip_features(clip_model, clip_trainloader)
+    aug_emb, aug_labels, aug_groups = get_clip_features(clip_model, clip_augloader)
+    val_emb, val_labels, val_groups = get_clip_features(clip_model, clip_valloader)
+    test_emb, test_labels, test_groups = get_clip_features(clip_model, clip_testloader)
 
     # get model features and logits
     features, logits = get_features(model, augloader)
@@ -270,10 +268,10 @@ if not args.filter.load:
         if not os.path.exists(f"{args.data.embedding_root}/{args.data.base_dataset}/{args.name}"):
             os.makedirs(f"{args.data.embedding_root}/{args.data.base_dataset}/{args.name}")
         print("Saving predictions...")
-        train_data = {"clip_embeddings": train_emb, "labels": train_labels , "logits": train_logits, "features": train_features, "groups": train_groups, "domains": train_domains}
-        aug_data = {"clip_embeddings": aug_emb, "labels": aug_labels, "logits": logits, "features": features, "groups": aug_groupds, "domains": aug_domains}
-        val_data = {"clip_embeddings": val_emb, "labels": val_labels, "logits": val_logits, "features": val_features, "groups": val_groups, "domains": val_domains}
-        test_data = {"clip_embeddings": test_emb, "labels": test_labels, "logits": test_logits, "features": test_features, "groups": test_groupds, "domains": test_domains}
+        train_data = {"clip_embeddings": train_emb, "labels": train_labels , "logits": train_logits, "features": train_features, "groups": train_groups}
+        aug_data = {"clip_embeddings": aug_emb, "labels": aug_labels, "logits": logits, "features": features, "groups": aug_groups}
+        val_data = {"clip_embeddings": val_emb, "labels": val_labels, "logits": val_logits, "features": val_features, "groups": val_groups}
+        test_data = {"clip_embeddings": test_emb, "labels": test_labels, "logits": test_logits, "features": test_features, "groups": test_groups}
         torch.save(train_data, f"{args.data.embedding_root}/{args.data.base_dataset}/train_data.pt")
         torch.save(aug_data, f"{args.data.embedding_root}/{args.data.base_dataset}/{args.name}/train_data.pt")
         torch.save(val_data, f"{args.data.embedding_root}/{args.data.base_dataset}/val_data.pt")
