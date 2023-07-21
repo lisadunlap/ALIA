@@ -36,7 +36,7 @@ def filter_data(dataset, text, negative_text = ["a photo of an object", "a photo
     loader = torch.utils.data.DataLoader(dataset, batch_size=128, shuffle=False, num_workers=4)
     sim, ret = [], []
     with torch.no_grad():
-        for images, labels, group, _ in loader:
+        for images, labels, group in loader:
             # imgs = torch.stack([preprocess(i).to("cuda") for i in images])
             image_features = model.encode_image(images.cuda())
             text_features = model.encode_text(texts)
@@ -49,8 +49,6 @@ def filter_data(dataset, text, negative_text = ["a photo of an object", "a photo
     sim = torch.cat(sim)
     idxs = np.where(results == 0)[0]
     print(f"Removing {len(dataset) - len(idxs)} ({idxs[:5]}) samples...")
-    # if len(idxs:
-    #     return sim, idxs, dataset
     return sim, np.where(results != 0)[0], Subset(dataset, idxs)
 
 
@@ -165,7 +163,6 @@ class EmbeddingDataset:
         print("embeddings size: ", self.embeddings.shape)
         print("---------------------------------")
         self.targets = self.data['labels'].numpy()
-        self.targets
         self.groups = self.data['groups'].numpy()
         self.domains = self.data['domains'].numpy()
         self.samples = list(zip(self.embeddings, self.targets))

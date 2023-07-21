@@ -138,6 +138,10 @@ def get_dataset(dataset_name, transform, val_transform, root='/shared/lisabdunla
         valset = EmbeddingDataset(os.path.join(embedding_root, dataset_name), valset, split='val')
         testset = EmbeddingDataset(os.path.join(embedding_root, dataset_name), testset, split='test')
 
+    # assert that the trainset has the attributes groups, labels, and class_names
+    for var in ['groups', 'targets', 'group_names', 'class_names', 'class_weights']:
+        assert all([hasattr(dataset, var) for dataset in [trainset, valset, testset]]), f"datasets missing the attribute {var}"
+
     return trainset, valset, testset, extraset
 
 def get_filtered_dataset(args, transform, val_transform):

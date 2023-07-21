@@ -25,7 +25,7 @@ class Planes:
         self.root = root
         self.transform = transform
         self.split = split
-        self.df = pd.read_csv('~/data/planes_ext.csv')
+        self.df = pd.read_csv('./data/planes_ext.csv')
         if self.split in ['train', 'test']:
             self.df = self.df[self.df['Split'] == split] if split != 'extra' else self.df[self.df['Split'] == 'val']
         if self.split == 'val':
@@ -38,7 +38,7 @@ class Planes:
         self.labels = np.array(self.df['Label'])
         self.targets = self.labels
         self.domain_classes = sorted(np.unique(self.df['Ground']))
-        self.domains = np.array([self.domain_classes.index(d) for d in self.df['Grounds']])
+        self.domains = np.array([self.domain_classes.index(d) for d in self.df['Ground']])
         self.groups = np.array(self.df['Group'])
         self.class_weights = get_counts(self.labels)
         self.samples = list(zip(self.filenames, self.labels))

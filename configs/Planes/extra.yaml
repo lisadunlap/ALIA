@@ -6,8 +6,6 @@ model: resnet18
 
 data: 
   base_dataset: PlanesExtra
-  extra_dataset: PlanesExtra
-  extraset_root: /shared/lisabdunlap/vl-attention
   extra_classes: ['airbus', 'boeing']
 
 hps:

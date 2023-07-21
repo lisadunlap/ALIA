@@ -18,6 +18,7 @@ data:
   filter: true # apply image filtering
   extra_dataset: false # this is the dataset type for the augmented data (usually its Img2ImgDataset or BasicDataset)
   extra_classes: false
+  extra_root: false # path to extra dataset
   num_extra: extra # how much generated data to add. Can be 'extra' (how we do it in the paper), 'all', or an int 
 
 

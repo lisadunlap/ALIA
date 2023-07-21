@@ -221,7 +221,7 @@ def test(epoch, loader, phase='val'):
             }
             
             if not os.path.exists(ckpt_name):
-                os.mkdirs(ckpt_name)
+                os.makedirs(ckpt_name)
 
             if args.checkpoint_name:
                 torch.save(state, f'./checkpoint/{args.checkpoint_name}.pth')
