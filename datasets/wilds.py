@@ -40,7 +40,7 @@ class Wilds:
         # map the idx to the location idx (filter out all other locations)
         # idx = self.location_idxs[idx]
         img, label, metadata = self.split_dataset[idx]
-        return img, label, self.groups[idx], label
+        return img, label, self.groups[idx]
 
 class WILDS:
     """
@@ -76,7 +76,7 @@ class WILDS:
         if self.transform:
             img = self.transform(img)
         location = self.location_labels[idx]
-        return img, label, location, self.df.location_remapped[idx]
+        return img, label, location
 
     def inspect_location(self, location):
         assert location in self.locations
@@ -157,7 +157,7 @@ class WILDSDiffusion(torchvision.datasets.ImageFolder):
 
     def __getitem__(self, idx):
         img, label = super().__getitem__(idx)
-        return img, label, self.groups[idx],label
+        return img, label, self.groups[idx]
 
     def inspect_class(self, class_idx):
         class_idxs = np.where(np.array(self.labels) == self.class_map[class_idx])[0]

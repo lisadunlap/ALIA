@@ -1,99 +1,92 @@
-# Automatic Language-guided Image Augmentation
+# Automatic Language-guided Image Augmentation (ALIA)
 
-Official Repo for the paper ["Diversify Your Vision Datasets with Automatic
-Diffusion-based Augmentation"](https://arxiv.org/abs/2305.16289)
+![Teaser](figures/method.png)
 
-If reading isn't your jam, checkout our TL;DR website [here](https://lisadunlap.github.io/alia-website/) and if you find our repo/work useful, we take donations in the form of citations:
+Welcome to the official repository for the paper ["Diversify Your Vision Datasets with Automatic Diffusion-based Augmentation"](https://arxiv.org/abs/2305.16289). If you prefer a condensed version, visit our [TL;DR website](https://lisadunlap.github.io/alia-website/). If you find our work useful, we welcome citations:
 
-```
-article{dunlap2023alia,
+```markdown
+@article{dunlap2023alia,
   author    = {Dunlap, Lisa and Umino, Alyssa and Zhang, Han and Yang, Jiezhi and Gonzalez, Joseph and Darrell, Trevor},
-  title     = {Diversify Your Vision Datasets with Automatic
-    Diffusion-based Augmentation},
+  title     = {Diversify Your Vision Datasets with Automatic Diffusion-based Augmentation},
   journal   = {arXiv},
   year      = {2023},
 }
 ```
 
-![Teaser](figures/method.png)
+**NOTE:** We are currently in the process of releasing our code. The pipeline for recreating CUB is set up, with more experiments to come. If you encounter any issues, please raise them in our repository.
 
-## Code release in progress.... (Yell at me if its not up by mid-June)
-Right now the pipeline for recreatig CUB is set up, the rest of the experiments to come. Please raise an issue if something isnt working :)
+## Table of Contents
+1. [Getting Started](#getting-started)
+2. [Prompt Generation](#prompt-generation)
+3. [Generating Images](#generating-images)
+4. [Filtering](#filtering)
+5. [Training](#training)
+6. [WandB Projects](#wandb-projects)
 
-----------------------------
+## Getting Started
 
-## Getting started
+To begin, install our code dependencies using Conda. You may need to adjust the `environment.yaml` file based on your setup:
 
-Install the dependencies for our code using Conda. You may need to adjust the environment YAML file depending on your setup.
-
-  ```
-  conda env create -f environment.yaml
-  conda activate ALIA
-  pip install -e .
-  ```
+```bash
+conda env create -f environment.yaml
+conda activate ALIA
+pip install -e .
+```
 
 ## Prompt Generation
- 
-**Captioning.** We use the BLIP captioning model to caption the entire dataset. For example:
-```
-python caption.py --config configs/Cub2011/base.yaml
-```
-This should save your captions [here](captions/Cub2011.csv)
 
-**LLM Summarization.** In our paper we use GPT-4 to summarize the domains from the captions, but we also offer [Vicuna](https://chat.lmsys.org/) support for everyone who doesn't want to give money to OpenAI. You can download the weights [here](https://github.com/lm-sys/FastChat/tree/main#vicuna-weights) (we use the 13b parameter model).
+- **Captioning**: We use the BLIP captioning model to caption the entire dataset:
+  ```bash
+  python caption.py --config configs/Cub2011/base.yaml
+  ```
+  This will save your captions [here](captions/Cub2011.csv).
 
-To use Vicuna, first `pip3 install fastchat`
-
-To play around with it, run:
-```
-python huggingface_api.py message="Hi! How are you doing today?"
-```
-
-To summarize a captioned dataset (we assume you have already generated the captions), run:
-```
-python prompt_generation.py --config configs/Cub2011/base.yaml
-```
-We naively sample 20 captions so we fit in the context length but we highly encourge someone to come up with a better method for this :)
+- **LLM Summarization**: In our paper, we used GPT-4 to summarize the domains from the captions. Alternatively, we provide [Vicuna](https://chat.lmsys.org/) support for those who prefer not to use OpenAI. Download the Vicuna weights [here](https://github.com/lm-sys/FastChat/tree/main#vicuna-weights) (we used the 13b parameter model).
+  ```bash
+  pip3 install fastchat
+  python huggingface_api.py message="Hi! How are you doing today?"
+  python prompt_generation.py --config configs/Cub2011/base.yaml
+  ```
 
 ## Generating Images
 
-All editing methods are located in [editing_methods](./editing_methods) and use the Huggingface Diffusers library. We also use the [tyro](https://github.com/brentyi/tyro) CLI, just add `--help` flag to your command to see all the arguments in immaculate formatting.
+Our editing methods are housed in [editing_methods](./editing_methods) and utilize the Huggingface Diffusers library and the [tyro](https://github.com/brentyi/tyro) CLI.
 
-**Per Example:** if you want to generate a ton of images given a prompt or only edit one image, use [txt2img_example.py](./editing_methods/txt2img_example.py) or [img2img_example.py](./editing_methods/img2img_example.py). 
-```
-python editing_methods/txt2img_example.py --prompt "Arachnophobia" --n 20
-```
+- **Per Example**: To generate multiple images given a prompt or edit a single image, use [txt2img_example.py](./editing_methods/txt2img_example.py) or [img2img_example.py](./editing_methods/img2img_example.py).
+  ```bash
+  python editing_methods/txt2img_example.py --prompt "Arachnophobia" --n 20
+  ```
 
-You should get a WandB run like [this](https://wandb.ai/lisadunlap/Text-2-Image/runs/1o3nqjqc) for text-2-image or [this](https://wandb.ai/lisadunlap/Image-2-Image/runs/6poxdpkx) for image-2-image, with the images stored in `./diffusion_generated_data`
-
-**Per Dataset:** generating images for an entire dataset is similar to per example but uses the `class_names` attribute of the dataset to create per-class prompts. 
-```
-python editing_methods/img2img.py --dataset Cub2011 --prompt "a photo of a {} bird on rocks." --n 2
-```
-This command should output something like [this](https://wandb.ai/lisadunlap/Image-2-Image/runs/cvl0n538). For the image editing methods, we save the edits of image at index i in the training set as i-0.png
+- **Per Dataset**: To generate images for an entire dataset, use the `class_names` attribute of the dataset to create per-class prompts.
+  ```bash
+  python editing_methods/img2img.py --dataset Cub2011 --prompt "a photo of a {} bird on rocks." --n 2
+  ```
 
 ## Filtering
 
-Once your data is generated, you can determine which indices to filter out by running
-```
+Once you have generated your data, determine which indices to filter out by running the following command:
+```bash
 python filtering/filter.py -config configs/Cub2011/alia.yaml
 ```
-This will save the indexes of the images filtered by the semantic and confidence-based filter in `filering_results`, along with samples of images filtered out. 
 
 ## Training
-To train the base models or the models with augmented data, simply run the appropriate yaml file from the configs folder. For instance to train Cub2011 baseline, use the [base config](configs/Cub2011/base.yaml)
-```
+
+To train the base models or models with augmented data, simply run the appropriate YAML file from the configs folder.
+```bash
 python main.py --config configs/Cub2011/base.yaml
 ```
-Apply a traditional data augmentation technique by setting `data.augmentation=cutmix`. Available data augmentations are in the [load_dataset file](helpers/load_dataset.py). The real data baseline is the [extra.yaml file](configs/Cub2011/extra.yaml)
+To apply a traditional data augmentation technique, set `data.augmentation=cutmix`. See all available data augmentations in the [load_dataset file](helpers/load_dataset.py).
 
 ## WandB Projects
 
-**Datasets of Generated data [here](https://wandb.ai/clipinvariance/ALIA) under the 'Artifacts' tab.** Each wandb artifact has the hyperparameters and prompt used to create it. You can download the images with
-```
+Our datasets of generated data can be found [here](https://wandb.ai/clipinvariance/ALIA) under the 'Artifacts' tab. Each artifact includes the hyperparameters and prompts used to create it.
+
+Download the images with the following command:
+```python
 import wandb
 run = wandb.init()
 artifact = run.use_artifact('clipinvariance/ALIA/cub_generic:v0', type='dataset')
 artifact_dir = artifact.download()
 ```
-Generated Data Examples for [Txt2Img](https://wandb.ai/lisadunlap/Text-2-Image), [Img2Img](https://wandb.ai/lisadunlap/Image-2-Image), and [InstructPix2Pix](https://wandb.ai/lisadunlap/InstructPix2Pix)
+
+View generated data examples for [Txt2Img](https://wandb.ai/lisadunlap/Text-2-Image), [Img2Img](https://wandb.ai/lisadunlap/Image-2-Image), and [InstructPix2Pix](https://wandb.ai/lisadunlap/InstructPix2Pix).

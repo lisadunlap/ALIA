@@ -51,7 +51,7 @@ class Waterbirds:
         species = sample['img_filename'].split('/')[0]
         if self.transform:
             img = self.transform(img)
-        return img, label, group, species
+        return img, label, group
 
     def get_subset(self, groups=[0,1,2,3], num_per_class=5):
         self.df['group'] = self.groups
@@ -94,4 +94,4 @@ class WaterbirdsInverted(dsets.ImageFolder):
         group = self.groups[idx]
         place = self.places[idx]
         species = self.species[self.old_labels[idx]]
-        return img, label, group, species
+        return img, label, group

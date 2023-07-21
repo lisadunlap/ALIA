@@ -6,11 +6,7 @@ model: resnet18
 
 data: 
   base_dataset: PlanesExtra
-  # base_root: /work/datasets/iwildcam_v2.0/train
-  # extraset_dataset: PlanesExtra
-  extraset_root: /shared/lisabdunlap/vl-attention
   extra_classes: ['airbus', 'boeing']
-  # generated_classes: ['empty scene', 'animal', 'animal', 'animal', 'animal', 'animal', 'animal']
 
 hps:
   lr: 0.001

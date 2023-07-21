@@ -118,12 +118,9 @@ def load_checkpoint(args, net, optimizer):
     start_epoch = checkpoint['epoch']
     return net, optimizer, best_acc, start_epoch
 
-if args.group_weighting and not  hasattr(trainset, 'group_weights'):
-    raise ValueError("Dataset does not have group weights")
-weights = trainset.class_weights if not args.group_weighting else trainset.group_weights
 print("num samples per group:", collections.Counter(trainset.groups))
-print("Weights: ", weights)
-criterion = nn.CrossEntropyLoss(weight=torch.tensor(weights).to(device))
+print("Weights: ", trainset.class_weights)
+criterion = nn.CrossEntropyLoss(weight=torch.tensor(trainset.class_weights).to(device))
 optimizer = optim.SGD(net.parameters(), lr=args.hps.lr,
                       momentum=0.9, weight_decay=args.hps.weight_decay)
 
@@ -154,7 +151,7 @@ def train(epoch):
     train_loss = 0
     correct = 0
     total = 0
-    for batch_idx, (inputs, targets, groups, species) in enumerate(trainloader):
+    for batch_idx, (inputs, targets, groups) in enumerate(trainloader):
         inputs, targets = inputs.to(device), targets.to(device)
         optimizer.zero_grad()
 
@@ -180,9 +177,9 @@ def test(epoch, loader, phase='val'):
     correct = 0
     total = 0
 
-    all_targets, all_predictions, all_groups, all_species = np.array([]), np.array([]), np.array([]), np.array([])
+    all_targets, all_predictions, all_groups = np.array([]), np.array([]), np.array([])
     with torch.no_grad():
-        for batch_idx, (inputs, targets, groups, species) in enumerate(loader):
+        for batch_idx, (inputs, targets, groups) in enumerate(loader):
             inputs, targets = inputs.to(device), targets.to(device)
             outputs = net(inputs)
         
@@ -197,7 +194,6 @@ def test(epoch, loader, phase='val'):
             all_targets = np.append(all_targets, targets.cpu().numpy())
             all_predictions = np.append(all_predictions, predicted.cpu().numpy())
             all_groups = np.append(all_groups, groups.cpu().numpy())
-            all_species = np.append(all_species, species)
 
             total += targets.size(0)
             correct += predicted.eq(targets).sum().item()
@@ -210,10 +206,7 @@ def test(epoch, loader, phase='val'):
             metrics.update(wilds_metrics)
 
         wandb.log(metrics)
-        # _, _, group_acc = evaluate(all_predictions, all_targets, all_groups)
         print("group acc", group_acc)
-        table = wandb.Table(data=[[loader.dataset.class_names[i], class_acc[i]] for i in range(len(class_acc))], columns = ["species", "accuracy"])
-        wandb.log({"class_acc_table" : wandb.plot.bar(table, "class", "accuracy", title="Per Class Accuracy")})
 
     # Save checkpoint.
     acc = 100.*correct/total if 'iWildCam' not in args.data.base_dataset else wilds_metrics['F1-macro_all']
@@ -228,7 +221,7 @@ def test(epoch, loader, phase='val'):
             }
             
             if not os.path.exists(ckpt_name):
-                os.mkdir(ckpt_name)
+                os.makedirs(ckpt_name)
 
             if args.checkpoint_name:
                 torch.save(state, f'./checkpoint/{args.checkpoint_name}.pth')

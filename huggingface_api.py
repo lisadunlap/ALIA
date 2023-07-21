@@ -114,17 +114,9 @@ from utils import nest_dict, read_unknowns
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    # add_model_args(parser)
-    # parser.add_argument("--temperature", type=float, default=0.7)
-    # parser.add_argument("--repetition_penalty", type=float, default=1.0)
-    # parser.add_argument("--max-new-tokens", type=int, default=512)
-    # parser.add_argument("--debug", action="store_true")
-    parser.add_argument("--config", type=str)
+    parser.add_argument("--config", type=str, default='configs/base.yaml')
     parser.add_argument('overrides', nargs='*', help="Any key=value arguments to override config values "
                                                 "(use dots for.nested=overrides)")
-    # parser.add_argument("--message", type=str, default="Hello! Who are you?")
-    # args = parser.parse_args()
-
     flags, unknown = parser.parse_known_args()
 
     overrides = OmegaConf.from_cli(flags.overrides)

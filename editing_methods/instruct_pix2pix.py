@@ -13,7 +13,7 @@ from PIL import Image
 from diffusers import StableDiffusionInstructPix2PixPipeline
 import tyro
 
-from helpers.load_dataset import new_get_dataset
+from helpers.load_dataset import get_dataset
 from args import InstructPix2PixArgs
 
 prompts = {
@@ -33,13 +33,14 @@ def main(args):
 
     pipe = StableDiffusionInstructPix2PixPipeline.from_pretrained(args.model, torch_dtype=torch.float16).to('cuda')
 
-    trainset, _, _, _ = new_get_dataset(args.dataset, transform=None, val_transform=None)
+    trainset, _, _, _ = get_dataset(args.dataset, transform=None, val_transform=None)
 
     pattern = r'[0-9]'
 
     dataset_idxs  = range(len(trainset)) if not args.test else np.random.choice(range(len(trainset)), 10, replace=False)
     for i in dataset_idxs:
-        init_image, label, _, _ = trainset[i]
+        item = trainset[i]
+        init_image, label = item[0], item[1]
         c = trainset.class_names[label]
         if args.prompt and args.class_agnostic:
             prompt = args.prompt

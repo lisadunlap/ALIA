@@ -36,7 +36,7 @@ def filter_data(dataset, text, negative_text = ["a photo of an object", "a photo
     loader = torch.utils.data.DataLoader(dataset, batch_size=128, shuffle=False, num_workers=4)
     sim, ret = [], []
     with torch.no_grad():
-        for images, labels, group, _ in loader:
+        for images, labels, group in loader:
             # imgs = torch.stack([preprocess(i).to("cuda") for i in images])
             image_features = model.encode_image(images.cuda())
             text_features = model.encode_text(texts)
@@ -49,8 +49,6 @@ def filter_data(dataset, text, negative_text = ["a photo of an object", "a photo
     sim = torch.cat(sim)
     idxs = np.where(results == 0)[0]
     print(f"Removing {len(dataset) - len(idxs)} ({idxs[:5]}) samples...")
-    # if len(idxs:
-    #     return sim, idxs, dataset
     return sim, np.where(results != 0)[0], Subset(dataset, idxs)
 
 
@@ -125,6 +123,8 @@ class BasicDataset(torchvision.datasets.ImageFolder):
         super().__init__(root, transform=transform)
         self.groups = [0] * len(self.samples)
         self.group_names = ["all"]
+        # ngl i forgot why i needed this extra_classes, i think it has something
+        # to do with making sure the class index is correct
         if not cfg or not cfg.data.extra_classes:
             self.class_names = self.classes
             self.class_map = None
@@ -142,7 +142,7 @@ class BasicDataset(torchvision.datasets.ImageFolder):
 
     def __getitem__(self, index):
         img, target = super().__getitem__(index)
-        return img, target, self.group, target
+        return img, target, self.group
     
 class EmbeddingDataset:
     """
@@ -163,7 +163,6 @@ class EmbeddingDataset:
         print("embeddings size: ", self.embeddings.shape)
         print("---------------------------------")
         self.targets = self.data['labels'].numpy()
-        self.targets
         self.groups = self.data['groups'].numpy()
         self.domains = self.data['domains'].numpy()
         self.samples = list(zip(self.embeddings, self.targets))
@@ -173,7 +172,7 @@ class EmbeddingDataset:
         return len(self.samples)
 
     def __getitem__(self, index):
-        return self.embeddings[index], self.targets[index], self.groups[index], self.domains[index]
+        return self.embeddings[index], self.targets[index], self.groups[index]
 
 
 class Img2ImgDataset(BasicDataset):
@@ -199,11 +198,7 @@ class Img2ImgDataset(BasicDataset):
         self.sample_groups = sample_groups
         self.new_samples = []
         for k, v in self.sample_groups.items():
-            # randomly select one sample from each group
-            # chosen = np.random.choice(list(range(len(v))), num_imgs, replace=False)
-            chosen = [0]
-            # print(np.random.choice(list(range(len(v))), num_imgs, replace=False))
-            # print([v[i] for i in chosen])
+            chosen = list(range(num_imgs))
             self.new_samples += [(v[i][0], int(v[i][1])) for i in chosen]
         self.samples = self.new_samples
         self.targets = [s[1] for s in self.samples]
@@ -214,7 +209,7 @@ class Img2ImgDataset(BasicDataset):
 
     # def __getitem__(self, index):
     #     img, target = super().__getitem__(index)
-    #     return img, target, self.groups[index], target
+    #     return img, target, self.groups[index]
         
 
 def subsample(dataset1, dataset2, attr='classes', seed=0):
@@ -224,11 +219,8 @@ def subsample(dataset1, dataset2, attr='classes', seed=0):
     """
     np.random.seed(seed)
     classes = getattr(dataset1, attr)
-    # print(f"1 = {np.unique(np.array(dataset1.targets))} 2 = {np.unique(np.array(dataset2.targets))}")
     class_counts = dict(Counter((dataset1.targets)))
     class_counts2 = dict(Counter(dataset2.targets))
-    # print("class counts ", class_counts)
-    # print("class counts 2 ", class_counts2)
     indices = []
     for c in class_counts.keys():
         replace = False

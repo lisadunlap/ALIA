@@ -120,7 +120,7 @@ class Cub2011(torch.utils.data.Dataset):
             img = self.transform(img)
 
         # return img, target
-        return img, target, 0, target
+        return img, target, 0
     
 class newCub2011(Cub2011):
 
@@ -177,7 +177,7 @@ class Cub2011Painting(torchvision.datasets.ImageFolder):
         if self.transform is not None:
             img = self.transform(img)
 
-        return img, target, 1, target
+        return img, target, 1
 
 class Cub2011Diffusion(torchvision.datasets.ImageFolder):
 
@@ -202,4 +202,4 @@ class Cub2011Diffusion(torchvision.datasets.ImageFolder):
         if self.subset:
             if target in INVERTED_CLASSES:
                 target = INVERTED_CLASSES[target] - 1
-        return img, target, 0, target
+        return img, target, 0
