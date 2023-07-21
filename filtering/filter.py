@@ -20,7 +20,7 @@ from mpl_toolkits.axes_grid1 import ImageGrid
 import datasets
 import models
 from utils import nest_dict, read_unknowns, flatten_config
-from helpers.load_dataset import get_train_transform, new_get_dataset
+from helpers.load_dataset import get_train_transform, get_dataset
 # from filtering.filtering_utils import get_clip_features, get_features, load_checkpoint
 from cleanlab.count import get_confident_thresholds
 from datasets.base import CombinedDataset
@@ -105,12 +105,12 @@ clip_model, clip_transform = clip.load(args.filter.model, device="cuda")
 print('==> Preparing data..')
 transform = get_train_transform(args.data.base_dataset, model=args.model, augmentation=args.data.augmentation)
 if 'Extra' in args.data.base_dataset:
-    trainset, valset, testset, dataset = new_get_dataset(args.data.base_dataset, transform=transform, val_transform=transform, root=args.data.base_root)
+    trainset, valset, testset, dataset = get_dataset(args.data.base_dataset, transform=transform, val_transform=transform, root=args.data.base_root)
 else:
     dataset = get_aug_dataset(args, transform)
     clip_dataset = get_aug_dataset(args, clip_transform)
-    trainset, valset, testset, _ = new_get_dataset(args.data.base_dataset, transform=transform, val_transform=transform, root=args.data.base_root)
-    clip_trainset, clip_valset, clip_testset, _ = new_get_dataset(args.data.base_dataset, transform=clip_transform, val_transform=transform, root=args.data.base_root)
+    trainset, valset, testset, _ = get_dataset(args.data.base_dataset, transform=transform, val_transform=transform, root=args.data.base_root)
+    clip_trainset, clip_valset, clip_testset, _ = get_dataset(args.data.base_dataset, transform=clip_transform, val_transform=transform, root=args.data.base_root)
 trainloader = torch.utils.data.DataLoader(trainset, batch_size=args.data.batch, shuffle=False, num_workers=2)
 valloader = torch.utils.data.DataLoader(valset, batch_size=args.data.batch, shuffle=False, num_workers=2)
 testloader = torch.utils.data.DataLoader(testset, batch_size=args.data.batch, shuffle=False, num_workers=2)
@@ -229,7 +229,7 @@ def get_features(model, loader):
         features.append(input)
     model.module.fc.register_forward_hook(forward_hook)
     with torch.no_grad():
-        for batch_idx, (inputs, targets, _, _) in enumerate(loader):
+        for batch_idx, (inputs, targets, _) in enumerate(loader):
             inputs, targets = inputs.to(device), targets.to(device)
             outputs = model(inputs)
             probs = torch.softmax(outputs, dim=1)

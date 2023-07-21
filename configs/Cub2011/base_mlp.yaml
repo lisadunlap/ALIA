@@ -1,0 +1,11 @@
+base_config: configs/Cub2011/base.yaml
+proj: ALIA-Cub2011
+name: Cub2011
+
+model: MLP
+
+data: 
+  base_dataset: Cub2011
+
+hps:
+  lr: 0.01

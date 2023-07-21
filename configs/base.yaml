@@ -1,13 +1,12 @@
 seed: 0
 wandb_silent: false
 test: false
-proj: DiffusionAugmentation
+proj: DiffusionAugmentation # wandb project name
 
-model: resnet50
+model: resnet50 # can change this to MLP if you want to LP CLIP
 finetune: false
 epochs: 100
 eval_only: false
-group_weighting: false
 resume: false
 checkpoint_name: false
 
@@ -16,28 +15,26 @@ data:
   embedding_root: /shared/lisabdunlap/dataset_understanding/embeddings # precomputed clip embeddings
   batch: 128
   augmentation: false # set to name of traditional augmentation method (cutmix, augmix, etc.)
-  extraset_dataset: false
   filter: true # apply image filtering
-  extra_dataset: false
+  extra_dataset: false # this is the dataset type for the augmented data (usually its Img2ImgDataset or BasicDataset)
   extra_classes: false
   num_extra: extra # how much generated data to add. Can be 'extra' (how we do it in the paper), 'all', or an int 
-  generated_classes: false
 
 
 filter:
   save_dir: filtering_results # where to save the results
   filtered_path: false # path to npy file with filtered images idxs, this is if you want to use a different filtering method than the one we provide
-  model: ViT-L/14 # CLIP model
-  load: True # set this to true after you comput the embeddings once 
+  model: ViT-L/14 # CLIP model for filtering
+  load: True # set this to true after you compute the embeddings once 
   per_img: False # set this to true if you are doing an img2img method
-  checkpoint_name: 'ckpt-Cub2011-none-resnet50-0.pth'
+  checkpoint_name: 'ckpt-Cub2011-none-resnet50-0.pth' # checkpoint to use for confidence-based filtering
 
 hps:
   lr: 0.01
   weight_decay: 0.0001
   lr_scheduler: cosine
 
-summarize:
+summarize: # for generating prompts
   captions_path: false # path to captions file
   prefix: 'a photo of a bird'
 

@@ -13,7 +13,7 @@ from PIL import Image
 from diffusers import StableDiffusionPipeline, StableDiffusionImg2ImgPipeline
 import tyro
 
-from helpers.load_dataset import new_get_dataset
+from helpers.load_dataset import get_dataset
 from args import Txt2ImgArgs
 
 prompts = {
@@ -38,7 +38,7 @@ def main(args):
         pipe = StableDiffusionPipeline.from_pretrained(args.model, torch_dtype=torch.float16, requires_safety_checker=False, safety_checker=None).to("cuda")
 
     print("getting dataset...")
-    trainset, _, _, _ = new_get_dataset(args.dataset, transform=None, val_transform=None)
+    trainset, _, _, _ = get_dataset(args.dataset, transform=None, val_transform=None)
 
 
     pattern = r'[0-9]'

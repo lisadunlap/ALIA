@@ -60,4 +60,4 @@ class Planes:
             img = self.transform(img)
         label = self.targets[idx]
         domain = self.groups[idx]
-        return img, label, domain, domain
+        return img, label, domain

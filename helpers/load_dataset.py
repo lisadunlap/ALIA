@@ -21,18 +21,6 @@ from datasets.cub import Cub2011, Cub2011Painting, Cub2011Diffusion, Cub2011Seg,
 from datasets.planes import Planes
 from cutmix.cutmix import CutMix
 
-def get_config(name="ColoredMNIST"):
-    if "ColoredMNIST" in name:
-        cfg       = OmegaConf.load('dataset_configs/ColoredMNIST.yaml')
-    elif 'CatsDogs' in name:
-        cfg       = OmegaConf.load('dataset_configs/CatsDogs.yaml')
-    elif 'Waterbirds' in name:
-        cfg       = None
-    else:
-        raise ValueError("Dataset config not found")
-    args      = cfg
-    return args
-
 def crop_wilds(image):
     return crop(image, 10, 0, 400, 448)
 
@@ -40,9 +28,8 @@ def get_train_transform(dataset_name="Imagenet", model=None, augmentation=None):
     """"
     Gets the transform for a given dataset
     """
+    # any data augmentation happens here
     transform_list = []
-    # if augmentation == "cutmix":
-    #     return ["cutmix", transforms.Compose(transform_list)]
     if augmentation == "augmix":
         print("Applying AugMix")
         transform_list.append(transforms.AugMix())
@@ -65,33 +52,10 @@ def get_train_transform(dataset_name="Imagenet", model=None, augmentation=None):
         print("Applying color jitter")
         transform_list.append(transforms.ColorJitter(brightness=.5, hue=.3))
 
+    # standard preprocessing
     if model in ['RN50', 'ViT-B/32']: # if we are evaluating a clip model we use its transforms
         print("...loading CLIP model")
         net, transform = clip.load(model)
-    elif "Imagenet" in dataset_name:
-        transform_list += [
-            transforms.Resize((224,224)),
-            transforms.ToTensor(),
-            transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
-        ]
-    elif "Waterbirds" in dataset_name:
-        transform_list += [
-            transforms.Resize((224,224)),
-            transforms.ToTensor(),
-            transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
-        ]
-    elif dataset_name == "ColoredMNIST":
-        transform_list += [
-            transforms.Resize((224,224)),
-            transforms.ToTensor(),
-            transforms.Normalize([0.0852, 0.0492, 0.0535], [0.2488, 0.1938, 0.2005])
-        ]
-    elif dataset_name == "CatsDogs":
-        transform_list += [
-            transforms.Resize((224,224)),
-            transforms.ToTensor(),
-            transforms.Normalize([0.5147, 0.4716, 0.4201], [0.2438, 0.2358, 0.2436])
-        ]
     elif "iWildCam" in dataset_name:
         transform_list += [transforms.ToTensor(),
                                 #   transforms.Grayscale(num_output_channels=3),
@@ -116,30 +80,6 @@ def get_val_transform(dataset_name="Imagenet", model=None):
     if model in ['RN50', 'ViT-B/32']: # if we are evaluating a clip model we use its transforms
         print("...loading CLIP model")
         net, transform = clip.load(model)
-    elif "Imagenet" in dataset_name:
-        transform_list += [
-            transforms.Resize((224,224)),
-            transforms.ToTensor(),
-            transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
-        ]
-    elif "Waterbirds" in dataset_name:
-        transform_list += [
-            transforms.Resize((224,224)),
-            transforms.ToTensor(),
-            transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
-        ]
-    elif dataset_name == "ColoredMNIST":
-        transform_list += [
-            transforms.Resize((224,224)),
-            transforms.ToTensor(),
-            transforms.Normalize([0.0852, 0.0492, 0.0535], [0.2488, 0.1938, 0.2005])
-        ]
-    elif dataset_name == "CatsDogs":
-        transform_list += [
-            transforms.Resize((224,224)),
-            transforms.ToTensor(),
-            transforms.Normalize([0.5147, 0.4716, 0.4201], [0.2438, 0.2358, 0.2436])
-        ]
     elif "iWildCam" in dataset_name:
         transform_list += [transforms.ToTensor(),
                                 #   transforms.Grayscale(num_output_channels=3),
@@ -156,7 +96,7 @@ def get_val_transform(dataset_name="Imagenet", model=None):
     
     return transforms.Compose(transform_list)
 
-def new_get_dataset(dataset_name, transform, val_transform, root='/shared/lisabdunlap/data', embedding_root=None):
+def get_dataset(dataset_name, transform, val_transform, root='/shared/lisabdunlap/data', embedding_root=None):
     if dataset_name == "Waterbirds": # change these data paths
         trainset = Waterbirds(root=root, split='train', transform=transform)
         valset = Waterbirds(root=root, split='val', transform=val_transform)
@@ -173,7 +113,6 @@ def new_get_dataset(dataset_name, transform, val_transform, root='/shared/lisabd
         if dataset_name == 'iWildCamMiniExtra':
             trainset = CombinedDataset([trainset, extraset])
     elif dataset_name == 'Cub2011' or dataset_name == 'Cub2011Extra':
-        print("ROOT yo ", root)
         trainset = Cub2011(root=root, subset=False, split='train', transform=transform)
         valset = Cub2011(root=root, split='val', transform=val_transform)
         extraset = Cub2011(root=root, subset=False, split='extra', transform=transform)
@@ -203,7 +142,7 @@ def new_get_dataset(dataset_name, transform, val_transform, root='/shared/lisabd
 
 def get_filtered_dataset(args, transform, val_transform):
     np.random.seed(args.seed)
-    trainset, valset, testset, extraset = new_get_dataset(args.data.base_dataset, transform, val_transform, root=args.data.base_root, embedding_root=args.data.embedding_root if args.model == 'MLP' else None)
+    trainset, valset, testset, extraset = get_dataset(args.data.base_dataset, transform, val_transform, root=args.data.base_root, embedding_root=args.data.embedding_root if args.model == 'MLP' else None)
     if args.data.extra_dataset and not args.eval_only:
         dataset = get_edited_dataset(args, transform)
         if args.data.num_extra == 'extra':

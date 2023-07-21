@@ -68,7 +68,7 @@ processor = BlipProcessor.from_pretrained("Salesforce/blip-image-captioning-larg
 model = BlipForConditionalGeneration.from_pretrained("Salesforce/blip-image-captioning-large").to(device)
 
 results = {"idx": [], "target": [], "captions": [], "path": []}
-for i, (img, target, _, _) in enumerate(trainset):
+for i, (img, target, _) in enumerate(trainset):
     # unconditional image captioning
     # if target == 0:
     inputs = processor(img, return_tensors="pt").to(device)
