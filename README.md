@@ -68,7 +68,7 @@ Our editing methods are housed in [editing_methods](./editing_methods) and utili
 
 Once you have generated your data, determine which indices to filter out by running the following command:
 ```bash
-python filtering/filter.py -config configs/Cub2011/alia.yaml
+python filtering/filter.py --config configs/Cub2011/alia.yaml filter.load=false
 ```
 
 ## Training
