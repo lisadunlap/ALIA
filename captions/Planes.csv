@@ -1,0 +1,410 @@
+,idx,target,captions,path
+0,0,1,there is a large white plane that is sitting on the runway,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/0732456.jpg
+1,1,1,araflane plane on the runway at an airport with a building in the background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/0788947.jpg
+2,2,1,arafly parked airplane on runway with mountains in background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/0056297.jpg
+3,3,1,arafed airplane on a runway with a sky background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/0942001.jpg
+4,4,1,arafly parked white airplane on runway with trees in background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/1605155.jpg
+5,5,1,arafed cargo plane on runway with grass and trees in background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/1284239.jpg
+6,6,1,arafed jetliner on runway with building in background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/0443893.jpg
+7,7,1,arafed airplane on the runway with a cloudy sky in the background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/0853774.jpg
+8,8,1,there is a large red and white airplane on the runway,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/1514487.jpg
+9,9,1,araflane plane on the runway at an airport with mountains in the background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/0056299.jpg
+10,10,1,arafed airplane on the runway with a sky background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/1107747.jpg
+11,11,1,arafed airplane on the runway with a red and white tail,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/1726606.jpg
+12,12,1,arafed passenger jet on runway with mountains in background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/0977347.jpg
+13,13,1,there is a large airplane that is on the runway in the rain,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/1022382.jpg
+14,14,1,arafly painted airplane on runway with grass and trees in background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/0842381.jpg
+15,15,1,araflane on the runway of an airport with a clear blue sky,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/0829998.jpg
+16,16,1,arafed air new zealand airplane on runway with grass and trees in background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/1146172.jpg
+17,17,1,arafed airplane on the runway with a cloudy sky in the background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/1264479.jpg
+18,18,1,araflane on the runway of an airport with a map on the tail,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/0448006.jpg
+19,19,1,arafly parked airplane on the runway in the desert,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/0494862.jpg
+20,20,1,araflane on the runway of an airport with a sky background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/0458643.jpg
+21,21,1,araflane on the runway of an airport with a blue and white plane,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/1197395.jpg
+22,22,1,arafed british airways plane parked on grass in front of a building,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/0979376.jpg
+23,23,1,arafly shot of a large passenger jet taking off from an airport runway,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/1606594.jpg
+24,24,1,arafed passenger jet on runway with building in background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/1543529.jpg
+25,25,1,araflane on the runway of an airport with a sky background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/1143409.jpg
+26,26,1,arafed commercial airplane on runway with landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/1006793.jpg
+27,27,1,arafed airplane on the runway with mountains in the background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/2188618.jpg
+28,28,1,arafly parked airplane on a runway with a sky background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/1548405.jpg
+29,29,1,arafed airplane on the runway with trees in the background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/1362802.jpg
+30,30,1,arafly painted airplane on runway with mountains in background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/0487358.jpg
+31,31,1,araflane on the tarmac of an airport with people watching,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/1763802.jpg
+32,32,1,there is a large airplane that is sitting on the runway,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/1296896.jpg
+33,33,1,arafed airplane on the runway with a cloudy sky in the background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/0928792.jpg
+34,34,1,arafly shot of a united airlines airplane taking off from the runway,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/1976400.jpg
+35,35,1,arafly painted airplane on runway with grass and sky in background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/0081597.jpg
+36,36,1,arafly painted airplane on runway with trees in background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/1555985.jpg
+37,37,1,arafly white and red airplane on runway with grass and trees,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/0684605.jpg
+38,38,1,araflane on the runway of an airport with a united airlines plane,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/1294490.jpg
+39,39,1,araf air plane on runway with grass and mountains in background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/0829999.jpg
+40,40,1,arafed blue and white airplane on runway with grass and lights,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/1313348.jpg
+41,41,1,araflane taking off from the runway at an airport,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/1413233.jpg
+42,42,1,araflane plane on the runway at an airport with a building in the background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/0967855.jpg
+43,43,1,there is a large white airplane on the runway at the airport,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/0980196.jpg
+44,44,1,arafed airplane on the runway at an airport with a sky background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/0894380.jpg
+45,45,1,there is a large white airplane that is sitting on the runway,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/0771164.jpg
+46,46,1,there is a large airplane that is on the runway with smoke coming out of it,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/0939497.jpg
+47,47,1,arafian jet airliner on runway with grassy area in foreground,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/1382524.jpg
+48,48,1,arafly parked commercial airplane on runway with grass and blue sky,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/1564943.jpg
+49,49,1,arafly white airplane taking off from an airport runway,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/2026597.jpg
+50,50,1,arafed yellow and blue airplane on runway with grass and sky,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/1763666.jpg
+51,51,1,arafed white and blue jet airliner on runway with trees in background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/0728390.jpg
+52,52,1,araflane jet on runway with grass and trees in background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/1560579.jpg
+53,53,1,there is a large jetliner that is sitting on the runway,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/0469140.jpg
+54,54,1,arafly painted airplane on runway with mountains in background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/1059090.jpg
+55,55,1,arafly painted airplane on runway with birds flying in the background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/1259152.jpg
+56,56,1,arafed jetliner on runway with landing gear down and a few people on the ground,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/1150188.jpg
+57,57,1,araflane on the runway of an airport with a cloudy sky,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/1230223.jpg
+58,58,1,arafed airplane on the runway at an airport with a sky background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/0458661.jpg
+59,59,1,arafly parked blue and white airplane on runway at airport,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/0443884.jpg
+60,60,1,there is a large white airplane that is on the runway,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/0752124.jpg
+61,61,1,araf cargo plane on the runway of an airport with a cloudy sky,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/1097975.jpg
+62,62,1,arafed airplane on the runway with mountains in the background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/0122393.jpg
+63,63,1,arafed british airways plane on runway with grass and sky in background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/1337392.jpg
+64,64,1,arafly parked airplane on the runway with mountains in the background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/2110536.jpg
+65,65,1,arafed airplane on the ground with a polar air cargo logo on it,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/0182189.jpg
+66,66,1,arafed white and blue jet airliner on runway with building in background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/2067977.jpg
+67,67,1,arafly painted blue and white airplane on runway with grass,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/1948449.jpg
+68,68,1,araflane on the runway of an airport with trees in the background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/0604668.jpg
+69,69,1,there is a large airplane that is taking off from the runway,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/0367973.jpg
+70,70,1,arafly painted airplane on runway with mountains in background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/1538841.jpg
+71,71,1,arafed blue and white airplane on runway with airport in background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/1309306.jpg
+72,72,1,arafed airplane on the runway with mountains in the background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/0143080.jpg
+73,73,1,arafed plane on the runway at an airport with a sky background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/0143341.jpg
+74,74,1,arafed airplane taking off from an airport runway with smoke coming out of the tail,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/1861153.jpg
+75,75,1,there is a large airplane that is sitting on the runway,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/2031775.jpg
+76,76,1,arafed cargo plane on runway with cargo sign on side,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/1469691.jpg
+77,77,1,arafly parked blue and white airplane on runway with city in background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/0960135.jpg
+78,78,1,araflane jetliner taking off from runway at airport,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/1810723.jpg
+79,79,1,arafly parked delta airplane on runway with mountains in background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/2222716.jpg
+80,80,1,arafed green airplane on runway with buildings in background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/0740907.jpg
+81,81,1,arafly looking at a delta airplane taking off from the runway,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/1546804.jpg
+82,82,1,arafed airplane on the runway with grass and trees in the background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/1702255.jpg
+83,83,1,there is a large airplane that is on the runway at the airport,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/0056331.jpg
+84,84,1,arafly white airplane on runway with blue and white writing,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/2103080.jpg
+85,85,1,arafly painted airplane on the runway at an airport,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/1560581.jpg
+86,86,1,araflane landing on the runway at an airport with a cloudy sky,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/0885966.jpg
+87,87,1,there is a large white airplane that is on the runway,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/0447749.jpg
+88,88,1,arafed airplane on the runway at an airport with grass and trees,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/2026894.jpg
+89,89,1,araffle plane on the runway with city in the background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/1136124.jpg
+90,90,1,arafed blue and white airplane on runway with grass and sky in background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/2066262.jpg
+91,91,1,arafly parked airplane on the runway at an airport,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/1187431.jpg
+92,92,1,arafed airplane on the runway at an airport with a cloudy sky,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/0482761.jpg
+93,93,1,arafed plane on the runway with city in the background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/2213535.jpg
+94,94,1,araflane landing on the runway with a united airlines plane in the background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/0193983.jpg
+95,95,1,arafed airplane on the runway with a blue tail,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/0781150.jpg
+96,96,1,arafly painted plane on runway with people walking around,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/1534214.jpg
+97,97,1,araflane on the runway of an airport with a building in the background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/0492477.jpg
+98,98,1,arafed airplane on the runway with a sky background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/1207591.jpg
+99,99,1,arafed air canada plane on runway with grass and buildings in background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/1418227.jpg
+100,100,1,arafly painted jet airliner on runway with landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/1147739.jpg
+101,101,1,arafed airplane on the runway with a building in the background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/2248958.jpg
+102,102,1,araflane landing on the runway at an airport with a plane in the background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/1143413.jpg
+103,103,1,arafly parked airplane on the runway at an airport,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/0923506.jpg
+104,104,1,there is a large green and white airplane on the runway,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/1031497.jpg
+105,105,1,arafly parked delta airplane on runway with control tower in background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/1539525.jpg
+106,106,1,arafed airplane on the runway with buildings in the background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/0939568.jpg
+107,107,1,arafly painted plane on runway with trees in background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/0487370.jpg
+108,108,1,there is a large airplane that is sitting on the runway,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/0729223.jpg
+109,109,1,arafly white airplane on runway with grass and trees in background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/0701140.jpg
+110,110,1,arafed airplane on the runway with mountains in the background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/2091929.jpg
+111,111,1,arafian air france airplane on runway with mountains in background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Boeing/grass/0225225.jpg
+112,112,0,araflane jetliner sitting on tarmac at airport with blue sky,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Airbus/road/0295746.jpg
+113,113,0,arafed united airlines plane on the tarmac at an airport,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Airbus/road/0147032.jpg
+114,114,0,there is a large white airplane that is on the runway,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Airbus/road/1639831.jpg
+115,115,0,araflane on the runway of an airport with a plane on the ground,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Airbus/road/1909808.jpg
+116,116,0,arafian air canada plane on the runway at an airport,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Airbus/road/1568879.jpg
+117,117,0,arafly parked airplane on the tarmac at an airport,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Airbus/road/0618871.jpg
+118,118,0,araflane on the tarmac of an airport with a clear sky,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Airbus/road/1234832.jpg
+119,119,0,arafly parked airplane on runway with city in background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Airbus/road/0205775.jpg
+120,120,0,arafed airplane on the runway with a tower in the background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Airbus/road/1013358.jpg
+121,121,0,arafed singapore airlines jet sitting on the tarmac at an airport,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Airbus/road/0215875.jpg
+122,122,0,there are two large airplanes that are sitting on the runway,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Airbus/road/0187671.jpg
+123,123,0,arafly parked airplane on the tarmac at an airport,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Airbus/road/1599803.jpg
+124,124,0,arafly painted jetliner sitting on tarmac at airport,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Airbus/road/0481841.jpg
+125,125,0,araflane on the runway of an airport with a city in the background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Airbus/road/1891966.jpg
+126,126,0,arafal air plane on the tarmac at an airport,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Airbus/road/0237414.jpg
+127,127,0,araflane plane on the tarmac at an airport with a loading area,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Airbus/road/1380666.jpg
+128,128,0,there is a large white plane on the runway at the airport,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Airbus/road/0301964.jpg
+129,129,0,arafly painted white and red airplane on tarmac at airport,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Airbus/road/0824047.jpg
+130,130,0,there is a large air france plane on the runway at the airport,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Airbus/road/1056320.jpg
+131,131,0,arafly parked airplane on the tarmac at an airport,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Airbus/road/0237111.jpg
+132,132,0,there are many airplanes parked on the tarmac at the airport,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Airbus/road/1191117.jpg
+133,133,0,araflanes of a large passenger jet sitting on a runway,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Airbus/road/0807870.jpg
+134,134,0,there are two airplanes that are sitting on the runway,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Airbus/road/0434343.jpg
+135,135,0,there is a large white plane on the runway at the airport,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Airbus/road/1885667.jpg
+136,136,0,arafian airliner on the runway at an airport with a sky background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Airbus/road/0066413.jpg
+137,137,0,arafies plane on the tarmac at an airport with cars nearby,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Airbus/road/0796416.jpg
+138,138,0,arafed airplane on the runway with a red tail,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Airbus/road/1426948.jpg
+139,139,0,arafly parked airplane on tarmac with blue sky in background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Airbus/road/0185316.jpg
+140,140,0,araflanes on the tarmac at an airport with other planes,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Airbus/road/0241450.jpg
+141,141,0,araflane jet airliner taking off from runway with landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Airbus/road/1621237.jpg
+142,142,0,there is a large white and blue airplane on the runway,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Airbus/road/0836146.jpg
+143,143,0,arafed airplane on the tarmac at an airport with other planes in the background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Airbus/road/0175819.jpg
+144,144,0,arafed airplane with a blue tail and white tail fin,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Airbus/road/0219233.jpg
+145,145,0,there is a large white airplane that is on the runway,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Airbus/road/1389257.jpg
+146,146,0,araflanes on the tarmac of an airport with a plane parked on the runway,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Airbus/road/0745521.jpg
+147,147,0,arafies are on the runway of an airport with a plane in the background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Airbus/road/1840423.jpg
+148,148,0,araflanes air plane parked on the tarmac at an airport,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Airbus/road/2025767.jpg
+149,149,0,araf cargo plane on the runway at an airport with a sky background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Airbus/road/2258288.jpg
+150,150,0,arafly parked airplane on the runway with a blue sky in the background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Airbus/road/0396589.jpg
+151,151,0,araflane on the runway of an airport with a plane in the background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Airbus/road/1617649.jpg
+152,152,0,arafly parked airplane on the runway at an airport,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Airbus/road/0522853.jpg
+153,153,0,arafed plane on the tarmac at an airport with a blue sky,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Airbus/road/0181735.jpg
+154,154,0,araflane jet sitting on tarmac at airport with blue sky,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Airbus/road/1869981.jpg
+155,155,0,araflanes on the tarmac of an airport with a building in the background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Airbus/road/2220792.jpg
+156,156,0,there is a large white and red airplane on the runway,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Airbus/road/1857215.jpg
+157,157,0,arafly painted airplane on runway with buildings in background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Airbus/road/1058491.jpg
+158,158,0,arafed cargo plane on the tarmac at an airport,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Airbus/road/1004164.jpg
+159,159,0,araflane on the runway of an airport with a red and white plane,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Airbus/road/1879898.jpg
+160,160,0,araflane parked in front of a hangar with a large yellow airplane,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Airbus/road/0418967.jpg
+161,161,0,there is a large jetliner sitting on the runway at the airport,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Airbus/road/0301967.jpg
+162,162,0,araflane on the tarmac of an airport with a plane on the ground,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Airbus/road/2221573.jpg
+163,163,0,arafed plane on the tarmac at an airport with other planes in the background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Airbus/road/0127637.jpg
+164,164,0,arafed airplane on the tarmac with people walking around it,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Airbus/road/1906074.jpg
+165,165,0,araflanes on the tarmac at an airport with a plane parked,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Airbus/road/0066533.jpg
+166,166,0,araflane plane taking off from an airport runway with buildings in the background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Airbus/road/1619902.jpg
+167,167,0,arafian jetliner sitting on tarmac at airport with other vehicles nearby,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Airbus/road/0114420.jpg
+168,168,0,arafed white airplane on tarmac with people boarding it,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Airbus/road/1291894.jpg
+169,169,0,there is a large white airplane that is parked on the runway,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Airbus/road/1333717.jpg
+170,170,0,araffair air france airplane on the tarmac at the airport,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Airbus/road/1462854.jpg
+171,171,0,there are two large airplanes that are sitting on the tarmac,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Airbus/road/0681535.jpg
+172,172,0,arafexress net airplane on the tarmac at an airport,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Airbus/road/0102223.jpg
+173,173,0,arafed passenger jet on runway with cloudy sky in background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Airbus/road/1423425.jpg
+174,174,0,araflanes on the tarmac of an airport with a plane parked on the runway,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Airbus/road/1113588.jpg
+175,175,0,there is a large white and blue airplane on the runway,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Airbus/road/2146985.jpg
+176,176,0,there is a large airplane that is sitting on the runway,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Airbus/road/1831097.jpg
+177,177,0,arafly parked airplane on the runway at an airport,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Airbus/road/0071197.jpg
+178,178,0,araflane jet airliner sitting on tarmac at airport,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Airbus/road/0469779.jpg
+179,179,0,arafed airplane on the tarmac at an airport with a loading ramp,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Airbus/road/2235142.jpg
+180,180,0,araflanes on the tarmac of an airport with a large building in the background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Airbus/road/1858302.jpg
+181,181,0,there are two airplanes that are sitting on the runway,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased_ground_type/train/Airbus/road/1945366.jpg
+182,182,1,arafed airplane flying in the air near a control tower,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/0478342.jpg
+183,183,1,araflane flying in the sky with clouds in the background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/2130084.jpg
+184,184,1,arafly painted airplane flying in the sky with a blue sky background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/1810927.jpg
+185,185,1,araflane flying in the sky with a blue sky background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/2204922.jpg
+186,186,1,araflane flying in the sky with a blue and green airplane,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/0802262.jpg
+187,187,1,arafly flying in the sky with a purple and white airplane,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/2221303.jpg
+188,188,1,arafly painted airplane flying in the sky with landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/1818747.jpg
+189,189,1,araflane flying in the sky with mountains in the background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/0337266.jpg
+190,190,1,araflane plane flying in the sky with landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/1200648.jpg
+191,191,1,arafly flying in the sky with a green and white airplane,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/0127627.jpg
+192,192,1,araflane jet airliner taking off from airport with city in background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/0487356.jpg
+193,193,1,araflane flying in the sky with a blue tail,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/1810920.jpg
+194,194,1,arafly flying in the sky with a ryanair logo on it,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/1375368.jpg
+195,195,1,arafly flying in the sky with a white airplane in the background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/1918572.jpg
+196,196,1,arafly flying in the sky with a delta airplane in the background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/0151672.jpg
+197,197,1,araflane jet airliner flying in the sky with landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/1847312.jpg
+198,198,1,araflane flying in the sky with landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/1340228.jpg
+199,199,1,arafly flying in the sky with a delta airplane in the foreground,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/1582400.jpg
+200,200,1,there is a large jetliner flying through the sky on a clear day,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/1298912.jpg
+201,201,1,araflane flying in the sky with landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/2132127.jpg
+202,202,1,arafly flying in the sky with a large jetliner under it,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/1059813.jpg
+203,203,1,arafly flying in the sky with a jet airliner in the foreground,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/1330831.jpg
+204,204,1,arafed airplane flying in the sky with landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/1980188.jpg
+205,205,1,araflane jet airliner flying in the sky with landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/0852827.jpg
+206,206,1,arafed blue air plane flying in the sky with landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/1687908.jpg
+207,207,1,arafed commercial airplane flying in the sky with landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/1607459.jpg
+208,208,1,arafed airplane flying in the sky with landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/0448050.jpg
+209,209,1,arafly flying in the sky with a blue and white airplane,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/2119860.jpg
+210,210,1,arafly flying in the sky with a singapore airlines plane in the foreground,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/1146233.jpg
+211,211,1,arafly flying in the sky with a green and white airplane,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/1368847.jpg
+212,212,1,arafly flying in the sky with a blue and white airplane,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/0840357.jpg
+213,213,1,araflane flying in the sky with landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/0523013.jpg
+214,214,1,araflane flying in the sky with its landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/0721593.jpg
+215,215,1,araflane jet airliner flying in the sky with landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/2183378.jpg
+216,216,1,araflane flying in the sky with landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/1741519.jpg
+217,217,1,arafly flying over a city with a large body of water,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/0487364.jpg
+218,218,1,arafly flying in the sky with a blue and white airplane,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/0863830.jpg
+219,219,1,araflane jet airliner flying in the sky with landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/1165767.jpg
+220,220,1,arafly flying in the sky with a us airways logo on the side,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/1902309.jpg
+221,221,1,arafly flying in the sky with a large jetliner in the foreground,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/1237622.jpg
+222,222,1,araflane landing on the runway at an airport with trees in the background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/1476615.jpg
+223,223,1,araflane flying in the sky with mountains in the background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/0798632.jpg
+224,224,1,arafed airplane flying in the sky with landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/0662343.jpg
+225,225,1,arafly flying in the sky with a large commercial airplane,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/0218812.jpg
+226,226,1,araflane plane taking off from the runway at the airport,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/0257025.jpg
+227,227,1,arafly flying over a grassy field with a plane in the background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/0923571.jpg
+228,228,1,arafly flying over airport with control tower and air traffic,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/0768173.jpg
+229,229,1,arafly flying in the sky with a large white airplane,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/1259556.jpg
+230,230,1,arafian air plane flying in the sky with landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/0702868.jpg
+231,231,1,arafly flying in the sky with a delta airplane in the background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/0127058.jpg
+232,232,1,araflane flying in the sky with landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/1187709.jpg
+233,233,1,araflane flying in the sky with a polar logo on it,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/1358854.jpg
+234,234,1,araflane jet airliner taking off from airport with city in background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/0894208.jpg
+235,235,1,arafly flying in the sky with a city in the background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/2176725.jpg
+236,236,1,araflane flying in the sky with landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/2002333.jpg
+237,237,1,arafly flying in the sky with a delta airplane in the background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/1647406.jpg
+238,238,1,araflane plane flying in the sky with landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/0921022.jpg
+239,239,1,arafed airplane flying in the sky with the landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/0447753.jpg
+240,240,1,arafly flying in the sky with a turkish airliner in the background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/1486383.jpg
+241,241,1,araflane jet airliner flying in the sky with landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/2080684.jpg
+242,242,1,arafed thai airlines plane flying over the ocean with a beach in the background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/1256464.jpg
+243,243,1,arafed airplane flying in the sky with a moon in the background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/1718899.jpg
+244,244,1,arafly painted jetliner flying in the sky with a sky background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/1703213.jpg
+245,245,1,arafed airplane flying in the sky with landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/1503761.jpg
+246,246,1,araflane flying in the sky with the emirates logo on it,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/2069690.jpg
+247,247,1,araflane jet airliner flying in the sky with landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/0328231.jpg
+248,248,1,arafed airplane flying in the sky with landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/1145144.jpg
+249,249,1,arafly flying in the sky with a blue and white airplane,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/1899111.jpg
+250,250,1,araflane flying in the sky with landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/1700644.jpg
+251,251,1,araflane flying in the sky with its landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/1615563.jpg
+252,252,1,arafly flying in the sky with a large commercial airplane,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/0983934.jpg
+253,253,1,arafly flying in the sky with a large passenger jet,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/0090868.jpg
+254,254,1,arafly flying in the sky with a blue and white airplane,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/2081094.jpg
+255,255,1,arafly flying in the sky with a red and orange airplane,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/1456005.jpg
+256,256,1,arafly flying over a body of water with a city in the background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/1384649.jpg
+257,257,1,araflane jet airliner flying in the sky with mountains in the background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/1206451.jpg
+258,258,1,arafed plane taking off from an airport runway with mountains in the background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/0092334.jpg
+259,259,1,arafly flying in the sky with a red tail,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/1401062.jpg
+260,260,1,araflane flying in the sky with its landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/0993061.jpg
+261,261,1,araflane flying in the sky with landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/0766314.jpg
+262,262,1,araf air plane flying in the sky with landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/1913641.jpg
+263,263,1,arafed blue and white jet airliner flying in the sky,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/2188154.jpg
+264,264,1,arafly flying in the sky with a large passenger jet,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/0097935.jpg
+265,265,1,arafly flying in the sky with a jet airliner in the background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/0987619.jpg
+266,266,1,araflane flying in the sky with landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/2017851.jpg
+267,267,1,arafed jetliner flying in the sky with landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/0958129.jpg
+268,268,1,arafed airplane flying in the sky with landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/0442918.jpg
+269,269,1,arafed passenger jet flying in the sky with landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/1356102.jpg
+270,270,1,arafed airplane flying in the sky with landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/0977350.jpg
+271,271,1,arafed airplane flying in the sky with a blue sky in the background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/0233765.jpg
+272,272,1,arafly flying in the sky with a red and white airplane,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/0784350.jpg
+273,273,1,arafly flying in the sky with a jet airliner in the background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/1906287.jpg
+274,274,1,arafly flying in the sky with a yellow and white plane,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/1758487.jpg
+275,275,1,araflane flying in the sky with a blue sky background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/1379983.jpg
+276,276,1,araflane jet airliner flying in the sky with landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/1877324.jpg
+277,277,1,araflane flying in the air with a canadian flag on the tail,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/0926105.jpg
+278,278,1,arafly flying in the sky with a white airplane in the background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/1871885.jpg
+279,279,1,araflane landing in the sky at sunset with a yellow sky,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/0522830.jpg
+280,280,1,arafly flying in the sky with a blue and white airplane,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/1390305.jpg
+281,281,1,araflane jet airplane flying in the air with landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/1611252.jpg
+282,282,1,"arafly flying in the sky with a red, white and blue airplane",/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/1910860.jpg
+283,283,1,araflane flying in the sky with a cloudy background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/1582314.jpg
+284,284,1,arafed qatar airlines plane flying in the sky with landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/2200425.jpg
+285,285,1,arafed red and white airplane flying in the sky with landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/1921783.jpg
+286,286,1,arafed airplane flying in the sky with landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/0905907.jpg
+287,287,1,arafed united parcel service airplane flying in the sky,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/0688093.jpg
+288,288,1,arafed airplane flying in the sky with landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/1204271.jpg
+289,289,1,araflane flying in the sky with a seagull flying in the background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/0482818.jpg
+290,290,1,araflane flying in the sky with the landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/1758606.jpg
+291,291,1,arafed passenger jet flying in the sky with landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/1806234.jpg
+292,292,1,araflane jet airliner flying in the sky with landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/1376174.jpg
+293,293,1,arafed airplane flying in the sky with landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/1053446.jpg
+294,294,1,arafly flying in the sky with a red and white airplane,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/1327285.jpg
+295,295,1,arafed airplane flying in the sky with a spanish flag on it,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/0068813.jpg
+296,296,1,araflane jet airliner taking off from airport with buildings in the background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/0476351.jpg
+297,297,1,arafed airplane flying in the sky with clouds in the background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/1759296.jpg
+298,298,1,arafed jumbo jet flying in the sky with landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/1505793.jpg
+299,299,1,arafed airplane flying in the sky with its landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/0710454.jpg
+300,300,1,araflane landing in front of a city with a building in the background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/1629329.jpg
+301,301,1,arafed airplane flying in the sky with a purple and red stripe,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/1099216.jpg
+302,302,1,arafed airplane flying over a small island with a house in the background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/1152739.jpg
+303,303,1,araflane flying in the sky with its landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/1606745.jpg
+304,304,1,arafed airplane with a face painted on the side of it,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/1692197.jpg
+305,305,1,arafly flying in the sky with a purple and white plane,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/1696058.jpg
+306,306,1,arafed plane flying in the sky with its landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/0687267.jpg
+307,307,1,arafed blue and white airplane flying in the sky with landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/0912693.jpg
+308,308,1,arafly flying in the sky with a large white plane,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/0894316.jpg
+309,309,1,araflane jet airliner flying over a large storage tank,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/2205728.jpg
+310,310,1,araflane flying in the sky with a blue and white tail,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Boeing/air/1016538.jpg
+311,311,0,arafed airplane flying in the sky with a star alliance logo on it,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/1540121.jpg
+312,312,0,arafly painted airplane flying in the sky with landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/1237633.jpg
+313,313,0,arafly flying in the sky with a large white airplane,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/1390327.jpg
+314,314,0,arafed tiger airways plane flying in the sky with landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/1614878.jpg
+315,315,0,arafly flying in the sky with a blue and white airplane,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/1641331.jpg
+316,316,0,arafed airplane flying in the sky with a blue sky background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/0062131.jpg
+317,317,0,araflane flying in the sky with a blue sky behind it,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/0509541.jpg
+318,318,0,arafed airplane flying in the air with a city in the background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/2168926.jpg
+319,319,0,arafly flying in the sky with a red and white airplane,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/1255726.jpg
+320,320,0,arafair jetliner flying in the air with landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/1559371.jpg
+321,321,0,arafly flying in the sky with a thai airlines plane in the background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/1609206.jpg
+322,322,0,araflane flying in the sky with a south african airways logo on the tail,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/0457830.jpg
+323,323,0,arafly flying in the sky with a red and white airplane,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/0994754.jpg
+324,324,0,arafly flying in the sky with a red and white airplane,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/1484701.jpg
+325,325,0,araflane jet airliner flying in the sky with landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/1649738.jpg
+326,326,0,arafly flying in the sky with a red and white airplane,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/1719561.jpg
+327,327,0,arafed air plane flying over houses in a residential area,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/1749661.jpg
+328,328,0,arafed plane flying in the sky with a qantas logo on the tail,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/1758486.jpg
+329,329,0,araflane flying in the sky with a cloudy background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/2233490.jpg
+330,330,0,arafed airplane flying in the sky with landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/1154702.jpg
+331,331,0,araflane jet airliner flying in the sky with landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/0973290.jpg
+332,332,0,araflane flying in the sky with landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/1446456.jpg
+333,333,0,araflane flying in the sky with a blue and white airplane,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/1266977.jpg
+334,334,0,araflane flying in the sky with a blue sky behind it,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/1469661.jpg
+335,335,0,arafly painted green airplane flying in the sky with a red number on the side,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/1486858.jpg
+336,336,0,arafed jetliner flying in the sky with landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/1880805.jpg
+337,337,0,araflane jet airliner flying in the sky with landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/1561989.jpg
+338,338,0,araflane plane flying in the sky with clouds in the background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/1111277.jpg
+339,339,0,arafly flying in the sky with a jet airliner in the foreground,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/0962924.jpg
+340,340,0,araflane flying in the sky with its landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/1335195.jpg
+341,341,0,arafed airplane taking off from an airport runway with trees in the background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/1757004.jpg
+342,342,0,araflane flying in the sky with a blue tail,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/1230040.jpg
+343,343,0,araff airplane flying in the sky with landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/1376172.jpg
+344,344,0,arafed airplane flying in the sky with a building in the background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/0768404.jpg
+345,345,0,arafly flying in the sky with a red and yellow airplane,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/0625402.jpg
+346,346,0,arafly flying in the sky with a large jetliner in the foreground,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/1508047.jpg
+347,347,0,arafly flying in the sky with a blue and white airplane,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/1327284.jpg
+348,348,0,arafed turkish airlines plane flying in the sky with landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/2171767.jpg
+349,349,0,araflane flying in the sky with clouds in the background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/1936773.jpg
+350,350,0,araflane jet airliner flying in the sky with landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/1992921.jpg
+351,351,0,arafly flying in the sky with a jet airliner in the foreground,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/0885622.jpg
+352,352,0,araflane flying in the sky with landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/1567881.jpg
+353,353,0,araflane jet airliner flying in the sky with korean air logo on it,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/2032511.jpg
+354,354,0,arafed airplane flying in the sky with its landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/2260895.jpg
+355,355,0,arafly flying in the sky with a red and white airplane,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/0248132.jpg
+356,356,0,arafly flying in the sky with a red cross on the side,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/0482796.jpg
+357,357,0,arafly flying in the sky with a delta airplane in the background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/1636535.jpg
+358,358,0,araflane flying in the sky with landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/1376301.jpg
+359,359,0,arafly flying in the sky with a purple and white airplane,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/2260088.jpg
+360,360,0,araflane flying in the sky with its landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/1285638.jpg
+361,361,0,araflane flying in the sky with a cloudy background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/1973442.jpg
+362,362,0,arafed white and red jet airliner flying in the sky,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/0450540.jpg
+363,363,0,arafly flying in the sky with a wing on,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/1237863.jpg
+364,364,0,arafm jetliner flying in the sky with landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/1165189.jpg
+365,365,0,araflane flying in the sky with landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/1027362.jpg
+366,366,0,araf blue airplane flying in the sky with landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/1818746.jpg
+367,367,0,"arafly flying in the sky with a red, yellow and orange stripe on the side",/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/1495298.jpg
+368,368,0,arafed airplane flying in the sky with landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/1252082.jpg
+369,369,0,arafly flying in the sky with a purple and white airplane,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/1883790.jpg
+370,370,0,arafly flying in the sky with a canadian airliner on it,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/1018875.jpg
+371,371,0,araflane flying in the sky with the emirates logo on it,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/1758424.jpg
+372,372,0,arafed airplane flying in the sky with landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/2099324.jpg
+373,373,0,arafly flying in the sky with a red tail,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/1210463.jpg
+374,374,0,arafly flying in the sky with a blue sky background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/1539428.jpg
+375,375,0,arafly flying in the sky with a china airlines airplane in the background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/2175627.jpg
+376,376,0,arafed airplane flying in the sky with its landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/1549128.jpg
+377,377,0,arafly flying in the sky with a white and black airplane,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/1539325.jpg
+378,378,0,arafly flying in the sky with a emirates logo on it,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/0996453.jpg
+379,379,0,arafly flying in the sky with a emirates logo on it,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/1103339.jpg
+380,380,0,araflane flying in the sky with palm trees in the foreground,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/0727643.jpg
+381,381,0,arafly flying in the sky with a mountain in the background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/0090861.jpg
+382,382,0,araflane flying in the sky with trees in the background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/1507531.jpg
+383,383,0,arafed airplane flying in the sky with its landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/0523012.jpg
+384,384,0,arafly flying in the sky with a jet airliner in the foreground,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/1864330.jpg
+385,385,0,arafexible airplane flying in the sky with a bird flying nearby,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/1270583.jpg
+386,386,0,arafed airplane flying in the sky with landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/1997848.jpg
+387,387,0,arafm airplane taking off from the airport runway with landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/1380336.jpg
+388,388,0,arafly flying in the sky with a blue and white airplane,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/0996579.jpg
+389,389,0,araflane flying in the sky with a south african flag on its tail,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/0884477.jpg
+390,390,0,arafly flying in the sky with a white and red airplane,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/1922848.jpg
+391,391,0,arafly flying in the sky with a jet airliner in the foreground,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/1293019.jpg
+392,392,0,arafed airplane flying in the sky with its landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/2090080.jpg
+393,393,0,arafed airplane flying in the sky with landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/0923502.jpg
+394,394,0,arafly flying in the sky with a red and white airplane,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/1088600.jpg
+395,395,0,arafed airplane flying in the sky with landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/0996087.jpg
+396,396,0,arafly flying in the sky with a jet airliner in the foreground,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/0843145.jpg
+397,397,0,arafed airplane flying in the sky with landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/1531355.jpg
+398,398,0,araflane flying in the sky with a cloud in the background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/2158999.jpg
+399,399,0,araflane jet airliner flying in the sky with landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/0672114.jpg
+400,400,0,arafly flying in the sky with a purple and white plane,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/1471167.jpg
+401,401,0,araflane flying in the sky with a blue sky background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/0067397.jpg
+402,402,0,araflane flying in the sky with a blue tail,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/1939758.jpg
+403,403,0,arafly flying in the sky with a blue and white airplane,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/1427112.jpg
+404,404,0,araflane flying in the sky with a sky background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/2162934.jpg
+405,405,0,araflane flying in the sky with a cloudy background,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/1567292.jpg
+406,406,0,arafed airplane flying in the sky with landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/1912969.jpg
+407,407,0,araffe jet airliner flying in the sky with landing gear down,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/1081563.jpg
+408,408,0,araflane flying in the sky with the word emirates on it,/shared/lisabdunlap/vl-attention/data/planes/manufacturer/biased/train/Airbus/air/0710652.jpg

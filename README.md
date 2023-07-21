@@ -17,7 +17,7 @@ article{dunlap2023alia,
 
 ![Teaser](figures/method.png)
 
-## Code release in progress.... (Yell at me if its not up by mid-June)
+## Code release in progress....
 Right now the pipeline for recreatig CUB is set up, the rest of the experiments to come. Please raise an issue if something isnt working :)
 
 ----------------------------
