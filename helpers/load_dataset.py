@@ -36,8 +36,8 @@ def get_train_transform(dataset_name="Imagenet", model=None, augmentation=None):
     if augmentation == "color-jitter":
         print("Applying color jitter")
         transform_list.append(transforms.ColorJitter(brightness=.5, hue=.3))
-    if augmentation == "random":
-        print("Applying random augmentations")
+    if augmentation == "randaug":
+        print("Applying RandAug augmentations")
         transform_list.append(transforms.RandAugment())
     if augmentation == "auto":
         print("Applying automatic augmentations")

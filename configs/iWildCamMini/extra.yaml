@@ -1,0 +1,6 @@
+base_config: configs/iWildCamMini/base.yaml
+name: iWildCamMini-extra
+
+data: 
+  base_dataset: iWildCamMiniExtra
+  # base_root: /work/datasets/iwildcam_v2.0/train

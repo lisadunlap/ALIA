@@ -13,7 +13,7 @@ Welcome to the official repository for the paper ["Diversify Your Vision Dataset
 }
 ```
 
-**NOTE:** We are currently in the process of releasing our code. The pipeline for recreating CUB is set up, with more experiments to come. If you encounter any issues, please raise them in our repository.
+**UPDATE:** We are currently rerunning experiments due to a bug in our checkpointing (shoutout to EyalMuchaeli for pointing it out), so the new numbers will be updated in the paper once all the experiments are done. If you want to track our newest results, here are the wandb projects to [CUB](https://wandb.ai/clipinvariance/ALIA-Cub2011), [iWildCam](https://wandb.ai/clipinvariance/ALIA-iWildCamMini), and [Planes](https://wandb.ai/clipinvariance/ALIA-Planes). Note that the traditional augmentation baselines for CUB now outperform ALIA. 
 
 ## Table of Contents
 1. [Getting Started](#getting-started)
@@ -33,6 +33,10 @@ conda env create -f environment.yaml
 conda activate ALIA
 pip install -e .
 ```
+
+All experiment parameters are in yaml configs, with [configs/base.yaml](configs/base.yaml) containing all default parameters and their description. The defaults for each individual dataset are in their configs/DATASET/base.yaml folder. 
+
+The overall pipeline is split up over several files
 
 ## Prompt Generation
 
@@ -70,6 +74,7 @@ Once you have generated your data, determine which indices to filter out by runn
 ```bash
 python filtering/filter.py --config configs/Cub2011/alia.yaml filter.load=false
 ```
+**NOTE**: since this filter requires a pretrained model for the confidence-based filtering, you will need to train a base model first (see below).
 
 ## Training
 

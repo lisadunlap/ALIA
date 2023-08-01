@@ -1,0 +1,21 @@
+base_config: configs/iWildCamMini/base.yaml
+name: iWildCamMini-Txt2Img
+
+logging:
+  prompt: "a camera trap photo of {} in the wild"
+
+data: 
+  base_dataset: iWildCamMini
+  # base_root: /work/datasets/iwildcam_v2.0/train
+  extra_dataset: BasicDataset
+  extra_root: /shared/lisabdunlap/edited/txt2img/iWildCamMini/a_camera_trap_photo_of_{}_in_the_wild
+  extra_classes: ['background', 'cattle', 'elephants', 'impalas', 'zebras', 'giraffes', 'dik-diks']
+  filter: true 
+  
+filter:
+  model: ViT-L/14 # CLIP model
+  prompt: "a photo of wildlife"
+  negative_prompts: ["a photo of an object", "a photo of geometric shapes", "a photo", "a cartoon of an animal", "a painting of an animal", "a photo of a camera"]
+  load: true
+  per_img: false
+  checkpoint_name: ckpt-iWildCamMini-none-filtered-resnet50-0-0.001-0.0001/best.pth
