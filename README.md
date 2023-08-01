@@ -36,7 +36,7 @@ pip install -e .
 
 All experiment parameters are in yaml configs, with [configs/base.yaml](configs/base.yaml) containing all default parameters and their description. The defaults for each individual dataset are in their configs/DATASET/base.yaml folder. 
 
-The overall pipeline is split up over several files
+The overall pipeline is split up over several files: [caption.py](./caption.py) captions the dataset, [prompt_generation.py](./prompt_generation.py) extracts the domains from the captions, [main.py](./main.py) does all the training/eval, [filter.py](./filtering/filter.py) saves the indexes to be filtered for a given dataset, and [editing methods](./editing_methods/img2img.py) create the training data. To train a model with ALIA, the pipeline would be caption -> prompt_generation -> editing -> main (base model w/ original training data) -> filter (generated training data) -> main (model w/ filtered original + generated data). We outline the exact commands below. 
 
 ## Prompt Generation
 
