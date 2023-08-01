@@ -1,0 +1,18 @@
+base_config: configs/iWildCamMini/base.yaml # config to inheit params from (should be dataset specific)
+proj: ALIA-iWildCamMini # wandb project
+name: iWildCamMini # name of dataset
+
+# resume: true # resume training from checkpoint
+# eval_only: true # only evaluate model
+# checkpoint_name: ckpt-iWildCamMini-none-filtered-resnet50-1-0.001-0.0001.pth
+epochs: 100
+
+data: 
+  base_dataset: iWildCamMini
+  # base_root: /work/datasets/iwildcam_v2.0/train
+  extraset_dataset: iWildCamMiniExtra
+  extraset_root: /work/datasets
+  generated_classes: ['empty scene', 'cattle', 'elephant', 'impala', 'zebra', 'giraffe', 'dik-dik']
+
+hps:
+  lr: 0.001

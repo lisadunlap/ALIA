@@ -19,6 +19,5 @@ filter:
   model: ViT-L/14 # CLIP model
   prompt: "a photo of a bird"
   negative_prompts: ["a photo of an object", "a photo of geometric shapes", "a photo", "an image", "a painting", "a photo of a person", "a cartoon of a bird"]
-  load: True # set this to true after you comput the embeddings once 
-  per_img: False # set this to true if you are doing an img2img method
+  load: True # set this to true after you compute the embeddings once 
   checkpoint_name: 'ckpt-Cub2011-none-filtered-resnet50-0-0.01-0.0001/best.pth'

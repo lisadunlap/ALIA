@@ -1,0 +1,23 @@
+base_config: configs/iWildCamMini/base.yaml
+name: iWildCam-ALIA # in the wandb run this is listed as iWildCam-ALIA-2
+
+epochs: 100 
+
+data: 
+  base_dataset: iWildCamMini
+  # base_root: /work/datasets/iwildcam_v2.0/train
+  extra_dataset: Img2ImgDataset
+  extra_root:
+  - /shared/lisabdunlap/edited/img2img/iWildCamMini/a_photo_of_a_{}_in_a_grassy_field_with_trees_and_bushes/strength-0.5_guidance-7.5
+  - /shared/lisabdunlap/edited/img2img/iWildCamMini/a_photo_of_{}_in_a_forest_in_the_dark/strength-0.5_guidance-7.5
+  - /shared/lisabdunlap/edited/img2img/iWildCamMini/a_photo_of_{}_near_a_large_body_of_water_in_the_middle_of_a_field/strength-0.5_guidance-7.5
+  - /shared/lisabdunlap/edited/img2img/iWildCamMini/A_photo_of_{}_walking_on_a_dirt_trail_with_twigs_and_branches/strength-0.5_guidance-7.5
+  extra_classes: ['background', 'cattle', 'elephants', 'impalas', 'zebras', 'giraffes', 'dik-diks']
+
+filter:
+  model: ViT-L/14 # CLIP model
+  prompt: "a wildlife photo"
+  negative_prompts: ["a photo of an object", "a photo of geometric shapes", "a photo", "an image", "a painting"]
+  load: True
+  per_img: True
+  checkpoint_name: ckpt-iWildCamMini-none-filtered-resnet50-0-0.001-0.0001/best.pth

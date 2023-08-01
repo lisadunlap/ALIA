@@ -53,9 +53,9 @@ if args.test:
     print("-------------------------------------------------------------")
     print("------------------------- TEST MODE -------------------------")
     print("-------------------------------------------------------------")
-    run = wandb.init(project="CleanLab", name='test', group=args.name, config=flatten_config(args))
+    run = wandb.init(project="ALIA-filter", name='test', group=args.name, config=flatten_config(args))
 else:
-    run = wandb.init(project="CleanLab", group=args.name, config=flatten_config(args))
+    run = wandb.init(project="ALIA-filter", group=args.name, config=flatten_config(args))
 
 torch.manual_seed(args.seed)
 np.random.seed(args.seed)
@@ -235,7 +235,7 @@ def get_features(model, loader):
     model.module.fc._forward_hooks.clear()
     return features, logits
 
-if not args.filter.load:
+if not args.filter.load or not os.path.exists(f"{args.data.embedding_root}/{args.data.base_dataset}/{args.name}/train_data.pt"):
     # compute clip embeddings
     train_emb, train_labels, train_groups = get_clip_features(clip_model, clip_trainloader)
     aug_emb, aug_labels, aug_groups = get_clip_features(clip_model, clip_augloader)
@@ -309,7 +309,10 @@ print(f"Number of too easy examples: {len(conf_correct_idxs)}")
 filtered_labels = [dataset.samples[i][1] for i in conf_correct_idxs]
 
 if not os.path.exists(f"{args.filter.save_dir}/{args.name}/easy/samples/"):
-    os.makedirs(f"{args.filter.save_dir}/{args.name}/easy/samples/")
+    os.makedirs(f"{args.filter.save_dir}/{args.name}/easy/samples/", exist_ok=True)
+    os.makedirs(f"{args.filter.save_dir}/{args.name}/filtered_idxs/", exist_ok=True)
+    os.makedirs(f"{args.filter.save_dir}/{args.name}/mislabled/samples/", exist_ok=True)
+    os.makedirs(f"{args.filter.save_dir}/{args.name}/samples/", exist_ok=True)
 
 for i in np.unique(filtered_labels):
     print(f"{dataset.classes[i]}: {filtered_labels.count(i)}/{list(aug_data['labels']).count(i)}")
@@ -329,9 +332,6 @@ wandb.summary[f"Easy kept"] = len(dataset) - len(conf_correct_idxs)
 
 print(f"Number of possibly mislabled examples: {len(conf_incorrect_idxs)}")
 filtered_labels = [dataset.samples[i][1] for i in conf_incorrect_idxs]
-
-if not os.path.exists(f"{args.filter.save_dir}/{args.name}/mislabled/samples/"):
-    os.makedirs(f"{args.filter.save_dir}/{args.name}/mislabled/samples/")
 
 for i in np.unique(filtered_labels):
     print(f"{dataset.classes[i]}: {filtered_labels.count(i)}/{list(aug_data['labels']).count(i)}")

@@ -131,7 +131,7 @@ class BasicDataset(torchvision.datasets.ImageFolder):
         else:
             self.class_names = list(cfg.data.extra_classes)
             assert [c in cfg.data.extra_classes for c in self.classes]
-            self.class_map = [cfg.data.extra_classes.index(c) for c in self.classes]
+            self.class_map = [self.class_names.index(c) for c in self.classes]
             self.samples = [(s[0], self.class_map[s[1]]) for s in self.samples]
             self.classes = self.class_names
             print("reindex samples")

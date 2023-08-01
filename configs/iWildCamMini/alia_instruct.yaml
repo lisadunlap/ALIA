@@ -1,0 +1,23 @@
+base_config: configs/iWildCamMini/base.yaml
+name: iWildCam-Instruct
+
+epochs: 100
+
+data: 
+  base_dataset: iWildCamMini
+  # base_root: /work/datasets/iwildcam_v2.0/train
+  extra_dataset: Img2ImgDataset
+  extra_root:
+  - /shared/lisabdunlap/edited/instruct/iWildCamMini/put_the_{}_in_a_grassy_field_with_trees_and_bushes/strength-1.3_guidance-5.0
+  - /shared/lisabdunlap/edited/instruct/iWildCamMini/put_the_animal_in_the_middle_of_a_forest_at_night/strength-1.3_guidance-5.0
+  - /shared/lisabdunlap/edited/instruct/iWildCamMini/put_the_animal_near_a_lake/strength-1.3_guidance-5.0
+  - /shared/lisabdunlap/edited/instruct/iWildCamMini/put_the_animal_in_a_field_with_twigs/strength-1.3_guidance-5.0
+  extra_classes: ['background', 'cattle', 'elephants', 'impalas', 'zebras', 'giraffes', 'dik-diks']
+
+filter:
+  model: ViT-L/14 # CLIP model
+  prompt: "a wildlife photo"
+  negative_prompts: ["a photo of an object", "a photo of geometric shapes", "a photo", "an image", "a painting"]
+  load: True
+  per_img: True
+  checkpoint_name: ckpt-iWildCamMini-none-filtered-resnet50-0-0.001-0.0001/best.pth

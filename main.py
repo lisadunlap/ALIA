@@ -67,7 +67,7 @@ trainset, valset, testset = get_filtered_dataset(args, transform, val_transform)
 trainloader = torch.utils.data.DataLoader(
     trainset, batch_size=args.data.batch, shuffle=True, num_workers=2)
 valloader = torch.utils.data.DataLoader(
-    trainset, batch_size=args.data.batch, shuffle=False, num_workers=1)
+    valset, batch_size=args.data.batch, shuffle=False, num_workers=1)
 testloader = torch.utils.data.DataLoader(
     testset, batch_size=args.data.batch, shuffle=False, num_workers=1)
 

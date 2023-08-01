@@ -3,7 +3,7 @@ channels:
 - pytorch
 - defaults
 dependencies:
-- python ==3.9
+- python
 - pytorch-cuda
 - pip
 - torchvision
