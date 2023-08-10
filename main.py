@@ -57,6 +57,8 @@ random.seed(args.seed)
 augmentation = 'none' if not args.data.augmentation else args.data.augmentation
 augmentation = f'{augmentation}-filtered' if args.data.filter else f'augmentation-unfiltered'
 ckpt_name = f'checkpoint/ckpt-{args.name}-{augmentation}-{args.model}-{args.seed}-{args.hps.lr}-{args.hps.weight_decay}'
+if args.data.num_extra != 'extra':
+    ckpt_name += f'-{args.data.num_extra}'
 
 # Data
 print('==> Preparing data..')
@@ -200,7 +202,7 @@ def test(epoch, loader, phase='val'):
 
         # get per class and per group accuracies
         acc, class_balanced_acc, class_acc, group_acc = evaluate(all_predictions, all_targets, all_groups)
-        metrics = {"epoch": epoch, f'{phase} acc': 100.*correct/total, f'{phase} accuracy': acc, f"{phase} balanced accuracy": class_balanced_acc, **{f"{phase} {loader.dataset.group_names[i]} acc": group_acc[i] for i in range(len(group_acc))}}
+        metrics = {"epoch": epoch, f'{phase} acc': 100.*correct/total, f'{phase} accuracy': acc, f"{phase} class accuracy": class_acc, f"{phase} balanced accuracy": class_balanced_acc, **{f"{phase} {loader.dataset.group_names[i]} acc": group_acc[i] for i in range(len(group_acc))}}
         if 'iWildCam' in args.data.base_dataset:
             wilds_metrics, _ = wilds_eval(torch.tensor(all_predictions), torch.tensor(all_targets))
             metrics.update(wilds_metrics)
@@ -234,6 +236,7 @@ def test(epoch, loader, phase='val'):
         wandb.summary['best val acc'] = best_acc
         wandb.summary['best group acc'] = group_acc
         wandb.summary['best balanced acc'] = class_balanced_acc
+        wandb.summary['best class acc'] = class_acc
     if not args.eval_only and epoch % 10 == 0:
         print('Saving..')
         state = {
@@ -246,8 +249,8 @@ def test(epoch, loader, phase='val'):
         wandb.save(f'./{ckpt_name}/epoch-{epoch}.pth')
 
 if args.eval_only:
-    test(start_epoch, testloader, phase='test')
     test(start_epoch, trainloader, phase='train_eval')
+    test(start_epoch, testloader, phase='test')
 else:
     for epoch in range(start_epoch, args.epochs):
         train(epoch)

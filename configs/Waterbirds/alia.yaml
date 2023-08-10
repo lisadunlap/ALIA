@@ -1,0 +1,23 @@
+base_config: configs/Waterbirds/base.yaml
+proj: ALIA-Waterbirds
+name: Waterbirds-ALIA
+
+data: 
+  base_dataset: Waterbirds
+  base_root: /shared/lisabdunlap/vl-attention/data/waterbird_complete95_forest2water2
+  extra_dataset: Img2ImgDataset
+  extra_root: 
+  - ./diffusion_generated_data/instruct/Waterbirds/put_the_{}_in_a_bamboo_forest_with_a_green_background/strength-1.2_guidance-5
+  - ./diffusion_generated_data/instruct/Waterbirds/put_the_{}_flying_over_the_water_with_a_city_skyline_in_the_background/strength-1.2_guidance-5
+  - ./diffusion_generated_data/instruct/Waterbirds/put_the_{}_perched_on_a_car_window_with_a_car_visible_behind/strength-1.2_guidance-5
+  - ./diffusion_generated_data/instruct/Waterbirds/put_the_{}_standing_in_the_snow_in_a_forest/strength-1.2_guidance-5
+  - ./diffusion_generated_data/instruct/Waterbirds/put_the_{}_standing_on_a_tree_stump_in_the_woods/strength-1.2_guidance-5
+  - ./diffusion_generated_data/instruct/Waterbirds/put_the_{}_swimming_in_a_lake_with_mountains_in_the_background/strength-1.2_guidance-5
+  - ./diffusion_generated_data/instruct/Waterbirds/put_the_{}_standing_on_the_beach_looking_up/strength-1.2_guidance-5
+  
+filter:
+  model: ViT-L/14 # CLIP model
+  prompt: "a photo of a bird"
+  negative_prompts: ["a photo of an object", "a photo of geometric shapes", "a photo", "an image", "a painting", "a photo of a person", "a cartoon of a bird", "a black image", "an unnatural looking image of a bird", "black"]
+  load: True # set this to true after you compute the embeddings once 
+  checkpoint_name: 'ckpt-Waterbirds-none-filtered-resnet50-0-0.001-0.0001/best.pth'

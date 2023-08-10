@@ -62,9 +62,9 @@ captions_df = pd.read_csv(f"captions/{args.name}.csv")
 captions_df = captions_df.drop_duplicates(subset=['captions'])
 captions = captions_df['captions'].tolist()
 
-print("--------------------------------------")
-print("------------- LOADING VICUNA ---------")
-print("--------------------------------------")
+print("------------------------------------------")
+print("------------- LOADING VICUNA -------------")
+print("------------------------------------------")
 llm, tokenizer = load_vicuna(args)
 
 default_prompt = """

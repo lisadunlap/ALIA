@@ -155,7 +155,7 @@ def get_cosine_similarity(embeddings, labels, base_embeddings, base_labels):
         cosine_sim.append(torch.stack(cosine_sim_cls))
     return cosine_sim
 
-def semantic_filter(dataset, text, negative_text = ["a photo of an object", "a photo of a scene", "a photo of geometric shapes", "a photo", "an image"], threshold=0.9):
+def semantic_filter(dataset, text, negative_text = ["a photo of an object", "a photo of a scene", "a photo of geometric shapes", "a photo", "an image", "a black photo"], threshold=0.9):
     """Filter out images that are not similar to the text prompt"""
     model, preprocess = clip.load("ViT-L/14", device="cuda")
     text = [text] if type(text) == str else text
@@ -342,7 +342,7 @@ for i in np.unique(filtered_labels):
     captions = [sample[1] for sample in samples]
     plot_imgs(images, captions, n_rows=1, save_path=f"{args.filter.save_dir}/{args.name}/mislabled/samples/mislabled_filtered-{i}.png")
     images = wandb.Image(Image.open(f"{args.filter.save_dir}/{args.name}/mislabled/samples/mislabled_filtered-{i}.png"), caption="cleanlab")
-    wandb.log({f"Easy examples filtered {dataset.classes[i]}": images})
+    wandb.log({f"Mislabeled examples filtered {dataset.classes[i]}": images})
 
 np.save(f"{args.filter.save_dir}/{args.name}/filtered_idxs/mislabled_filtered.npy", conf_incorrect_idxs)
 np.save(f"{args.filter.save_dir}/{args.name}/filtered_idxs/mislabled_kept.npy", [kept for kept in range(len(dataset)) if kept not in conf_incorrect_idxs])
@@ -362,7 +362,6 @@ wandb.summary['semantic filter removed original'] = len(base_idxs)
 wandb.summary["semantic filter removed ratio original"] = len(base_idxs) / len(train_emb)
 np.save(f"{args.filter.save_dir}/{args.name}/filtered_idxs/semantic_filtered.npy", semantic_filtered)
 np.save(f"{args.filter.save_dir}/{args.name}/filtered_idxs/semantic_kept.npy", kept_idxs)
-
 
 filtered = np.unique(np.concatenate((semantic_filtered, conf_incorrect_idxs, conf_correct_idxs)))
 kept = np.array([i for i in range(len(aug_emb)) if i not in filtered])

@@ -10,7 +10,7 @@ import os
 import io
 import wandb
 from PIL import Image
-from diffusers import StableDiffusionPipeline, StableDiffusionImg2ImgPipeline
+from diffusers import StableDiffusionPipeline, StableDiffusionImg2ImgPipeline, StableDiffusionXLImg2ImgPipeline
 from args import Img2ImgSingleArgs
 import tyro
 
@@ -20,9 +20,12 @@ def main(args):
         os.environ['WANDB_SILENT']="true"
 
     prompt_str = args.prompt.replace(' ', '_').replace("\'", "").replace(',', '')
-    wandb.init(project="Image-2-Image", name=f"{prompt_str}-{args.strength}-{args.guidance}", group=args.im_path, config=args, entity='lisadunlap')
+    wandb.init(project="Image-2-Image-Dev", name=f"{prompt_str}-{args.strength}-{args.guidance}", group=args.im_path, config=args, entity='lisadunlap')
 
-    pipe = StableDiffusionImg2ImgPipeline.from_pretrained(args.model, torch_dtype=torch.float16, requires_safety_checker=False, safety_checker=None).to('cuda')
+    if 'xl' in args.model:
+        pipe = StableDiffusionXLImg2ImgPipeline.from_pretrained(args.model, torch_dtype=torch.float16, requires_safety_checker=False, safety_checker=None).to('cuda')
+    else:
+        pipe = StableDiffusionImg2ImgPipeline.from_pretrained(args.model, torch_dtype=torch.float16, requires_safety_checker=False, safety_checker=None).to('cuda')
 
     init_image = Image.open(args.im_path)
     prompt = args.prompt
