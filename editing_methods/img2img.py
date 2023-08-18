@@ -34,7 +34,7 @@ def main(args):
 
     pipe = StableDiffusionImg2ImgPipeline.from_pretrained(args.model, torch_dtype=torch.float16, requires_safety_checker=False, safety_checker=None).to("cuda")
 
-    trainset, _, _, _ = get_dataset(args.dataset, transform=None, val_transform=None, root='/shared/lisabdunlap/data')
+    trainset, _, _, _ = get_dataset(args.dataset, transform=None, val_transform=None, root=args.data_dir)
     print(f"Class names: {trainset.class_names}")
 
     pattern = r'[0-9]'

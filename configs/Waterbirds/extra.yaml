@@ -1,0 +1,12 @@
+base_config: configs/Waterbirds/base.yaml # config to inheit params from (should be dataset specific)
+proj: ALIA-Waterbirds # wandb project
+name: WaterbirdsExtra # name of dataset
+
+epochs: 100
+
+data: 
+  base_dataset: WaterbirdsExtra
+  base_root: /shared/lisabdunlap/vl-attention/data/waterbird_complete95_forest2water2
+
+hps:
+  lr: 0.001

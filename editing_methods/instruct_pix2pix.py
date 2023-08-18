@@ -33,7 +33,7 @@ def main(args):
 
     pipe = StableDiffusionInstructPix2PixPipeline.from_pretrained(args.model, torch_dtype=torch.float16).to('cuda')
 
-    trainset, _, _, _ = get_dataset(args.dataset, transform=None, val_transform=None)
+    trainset, _, _, _ = get_dataset(args.dataset, transform=None, val_transform=None, root=args.data_dir)
 
     pattern = r'[0-9]'
 

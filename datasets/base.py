@@ -249,7 +249,12 @@ def get_class_balanced_subset(dataset, k=5):
             print(f"Getting {k} samples for class {c}.")
         if len(idx_filtered) == 0:
             continue
-        indices.extend(np.random.choice([i for i, t in enumerate(dataset.targets) if t == c], k, replace=False))
+        try:
+            indices.extend(np.random.choice([i for i, t in enumerate(dataset.targets) if t == c], k, replace=False))
+        except:
+            sample = np.random.choice([i for i, t in enumerate(dataset.targets) if t == c], k, replace=True)
+            indices.extend(sample)
+            print(f"Added {len(sample)} samples for class {c} insetad of {k}.")
     return Subset(dataset, indices)
 
 # PLOTTING UTILS

@@ -4,6 +4,7 @@ import os
 import numpy as np
 import torch
 import torchvision.datasets as dsets
+from collections import Counter
 
 def get_counts(labels):
     values, counts = np.unique(labels, return_counts=True)
@@ -22,7 +23,8 @@ class Waterbirds:
             self.df = self.df[self.df.split == 1]
         elif split == 'test':
             self.df = self.df[self.df.split == 2]
-        self.class_names = [f.split('/')[0] for f in self.df['img_filename'].unique()]
+        # self.class_names = [f.split('/')[0] for f in self.df['img_filename'].unique()]
+        self.class_names = ['Landbird', 'Waterbird']
         self.group_names = ['land_landbird', 'land_waterbird', 'water_landbird', 'water_waterbird']
         self.samples =[(f,y) for f,y in zip(self.df['img_filename'], self.df['y'])]
         self.targets = [s[1] for s in self.samples]
@@ -36,6 +38,7 @@ class Waterbirds:
             else:
                 group = 2 if label == 0 else 3
             self.groups.append(group)
+        print(f"{split} \t group counts: {Counter(self.groups)}")
         self.group_weights = get_counts(self.groups) # returns group weight for XE
         
 
@@ -58,7 +61,7 @@ class Waterbirds:
         df = self.df.reset_index(drop=True)
         df['orig_idx'] = df.index
         df['class'] = [f.split('/')[0] for f in df.img_filename]
-        df = df[df.place.isin(groups)]
+        df = df[df.group.isin(groups)]
         return df.groupby('class').apply(lambda x: x.sample(n=num_per_class) if len(x) > num_per_class else x.sample(n=len(x))).reset_index(drop=True)['orig_idx'].values
 
 class WaterbirdsInverted(dsets.ImageFolder):

@@ -20,6 +20,7 @@ data:
   extra_classes: false
   extra_root: false # path to extra dataset
   num_extra: extra # how much generated data to add. Can be 'extra' (how we do it in the paper), 'all', or an int 
+  class_balance: true # whether to balance the classes in the extra dataset, this is if you set num_extra to an int
 
 
 filter:
