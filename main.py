@@ -211,7 +211,9 @@ def test(epoch, loader, phase='val'):
         print("group acc", group_acc)
 
     # Save checkpoint.
-    acc = 100.*correct/total if 'iWildCam' not in args.data.base_dataset else wilds_metrics['F1-macro_all']
+    # this is changed from the paper, I think checkpointing on acc leads to better results
+    # acc = 100.*correct/total if 'iWildCam' not in args.data.base_dataset else wilds_metrics['F1-macro_all']
+    acc = 100.*correct/total 
     if acc > best_acc:
         if not args.eval_only or phase == 'val':
             print('Saving..')

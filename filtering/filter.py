@@ -391,9 +391,13 @@ edit_filenames = [dataset.samples[i][0] for i in range(len(dataset))]
 # plot random sample of filtered vs original dataset
 filtered_sample = np.random.choice(filtered, 10)
 print(len(edit_filenames), filtered_sample)
-filtered_vis = [Image.open(edit_filenames[i]) for i in filtered_sample]
-filtered_captions = [aug_labels[i] for i in filtered_sample]
-unfiltered_sample = np.random.choice(kept, 10)
-unfiltered_vis = [Image.open(edit_filenames[i]) for i in unfiltered_sample]
-unfiltered_captions = [aug_labels[i] for i in unfiltered_sample]
-plot_imgs(filtered_vis+unfiltered_vis, filtered_captions+unfiltered_captions, n_rows=2, save_path=f"{args.filter.save_dir}/{args.name}/samples/filtered_vs_unfiltered.png")
+# yet another hack, it will throw an error if you dont filter out any examples from a class
+try:
+    filtered_vis = [Image.open(edit_filenames[i]) for i in filtered_sample]
+    filtered_captions = [aug_labels[i] for i in filtered_sample]
+    unfiltered_sample = np.random.choice(kept, 10)
+    unfiltered_vis = [Image.open(edit_filenames[i]) for i in unfiltered_sample]
+    unfiltered_captions = [aug_labels[i] for i in unfiltered_sample]
+    plot_imgs(filtered_vis+unfiltered_vis, filtered_captions+unfiltered_captions, n_rows=2, save_path=f"{args.filter.save_dir}/{args.name}/samples/filtered_vs_unfiltered.png")
+except:
+    pass

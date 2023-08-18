@@ -1,34 +1,29 @@
 name: ALIA
 channels:
-- pytorch
-- defaults
+  - pytorch
+  - conda-forge
+  - defaults
 dependencies:
-- python
-- pytorch-cuda
-- pip
-- torchvision
-- pandas
-- numpy
-- seaborn
-- pip:
-    - numpy
-    - clip
-    - matplotlib
-    - regex
-    - wilds
+  - python=3.9
+  - numpy
+  - matplotlib
+  - pandas
+  - scipy
+  - seaborn
+  - torchvision
+  - pytorch
+  - cudatoolkit=11.7
+  - pip
+  - pip:
+    - torchtext
     - omegaconf
+    - wilds
     - wandb
     - scikit-image
-    - torch
-    - torchfile
-    - torchtext
-    - torchvision
     - tqdm
     - transformers
-    - attrdict
-    - wandb
     - diffusers[torch]
     - tyro
-    - git+https://github.com/ildoonet/cutmix
+    # - git+https://github.com/ildoonet/cutmix
     - git+https://github.com/openai/CLIP.git
-    - cleanlab
+    - fschat
