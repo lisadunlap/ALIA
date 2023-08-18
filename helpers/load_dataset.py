@@ -11,6 +11,7 @@ import matplotlib.pyplot as plt
 from omegaconf import OmegaConf
 import clip
 from torchvision.transforms.functional import crop
+from collections import Counter
 
 import datasets
 from datasets.Waterbirds import Waterbirds, WaterbirdsInverted
@@ -97,14 +98,23 @@ def get_val_transform(dataset_name="Imagenet", model=None):
     return transforms.Compose(transform_list)
 
 def get_dataset(dataset_name, transform, val_transform, root='/shared/lisabdunlap/data', embedding_root=None):
-    if dataset_name == "Waterbirds": # change these data paths
+    if dataset_name == "Waterbirds" or dataset_name == 'WaterbirdsExtra': # change these data paths
         trainset = Waterbirds(root=root, split='train', transform=transform)
+        train_ids = trainset.get_subset(groups=[0,3], num_per_class=1000)
+        # get every 4th idx
+        train_ids = train_ids[::4]
+        train_extra_ids = trainset.get_subset(groups=[1,2], num_per_class=1000)
+        extra_trainset = Subset(trainset, train_extra_ids)
+        trainset = Subset(trainset, train_ids) #100% biased
         valset = Waterbirds(root=root, split='val', transform=val_transform)
-        idxs = valset.get_subset(groups=[0,3], num_per_class=100)
-        extra_idxs = valset.get_subset(groups=[1,2], num_per_class=100)
-        valset = Subset(trainset, idxs) 
-        extraset = Subset(trainset, extra_idxs)
+        idxs = valset.get_subset(groups=[0,3], num_per_class=1000)
+        extra_idxs = valset.get_subset(groups=[1,2], num_per_class=1000)
+        extra_valset = Subset(valset, extra_idxs)
+        extraset = CombinedDataset([extra_valset, extra_trainset])
+        valset = Subset(valset, idxs)
         testset = Waterbirds(root=root, split='test', transform=val_transform)
+        if dataset_name == 'WaterbirdsExtra':
+            trainset = CombinedDataset([trainset, extraset])
     elif dataset_name == "iWildCamMini" or dataset_name == "iWildCamMiniExtra":
         trainset = WILDS(root=f'{root}/iwildcam_v2.0/train', split='train', transform=transform)
         valset = WILDS(root=f'{root}/iwildcam_v2.0/train', split='val', transform=val_transform)
@@ -152,7 +162,12 @@ def get_filtered_dataset(args, transform, val_transform):
         if args.data.num_extra == 'extra':
             dataset = subsample(extraset, dataset) # make sure we are sampling the same number of images as the extraset
         elif type(args.data.num_extra) == int: # randomly sample x images from the dataset
-            dataset = Subset(dataset, np.random.choice(len(dataset), args.data.num_extra, replace=False))
+            print("sampled", args.data.num_extra, "images from the extra dataset")
+            if args.data.class_balance:
+                dataset = get_class_balanced_subset(dataset, args.data.num_extra // len(dataset.classes))
+            else:
+                dataset = Subset(dataset, np.random.choice(len(dataset), args.data.num_extra, replace=False))
+        print(f"Added extra data with class counts {Counter(dataset.targets)}")
         trainset = CombinedDataset([trainset, dataset])
 
         if args.data.augmentation == 'cutmix': # hacky way to add cutmix augmentation

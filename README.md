@@ -13,7 +13,9 @@ Welcome to the official repository for the paper ["Diversify Your Vision Dataset
 }
 ```
 
-**UPDATE:** We are currently rerunning experiments due to a bug in our checkpointing (shoutout to EyalMuchaeli for pointing it out), so the new numbers will be updated in the paper once all the experiments are done. If you want to track our newest results, here are the wandb projects to [CUB](https://wandb.ai/clipinvariance/ALIA-Cub2011), [iWildCam](https://wandb.ai/clipinvariance/ALIA-iWildCamMini), and [Planes](https://wandb.ai/clipinvariance/ALIA-Planes). Note that the traditional augmentation baselines for CUB now outperform ALIA. 
+**UPDATE:** We are currently rerunning experiments due to a bug in our checkpointing (shoutout to EyalMuchaeli for pointing it out), so the new numbers will be updated in the paper once all the experiments are done. If you want to track our newest results, here are the wandb projects to [CUB](https://wandb.ai/clipinvariance/ALIA-Cub2011), [iWildCam](https://wandb.ai/clipinvariance/ALIA-iWildCamMini), and [Planes](https://wandb.ai/clipinvariance/ALIA-Planes). Note that the traditional augmentation baselines for CUB now outperform ALIA and when running on a ResNet50, Txt2Img beats ALIA on Planes. Due to various issues with the Planes dataset, we have replaced it with the Waterbirds dataset.
+
+**NEW** We have added the [Waterbirds](https://github.com/kohpangwei/group_DRO) dataset(subsampled to exaggerate the real data gains but full dataset coming soon). We use the 95% bias split and use the 5% unbiased data as the extra set. Note that unlike the standard dataset, we make our val set biased as well (but our test set is unbiased).
 
 ## Table of Contents
 1. [Getting Started](#getting-started)
@@ -22,7 +24,8 @@ Welcome to the official repository for the paper ["Diversify Your Vision Dataset
 4. [Filtering](#filtering)
 5. [Training](#training)
 6. [WandB Projects](#wandb-projects)
-7. [Add Custom Datasets](#add-custom-datasets)
+7. [Checkpoints](#checkpoints)
+8. [Add Custom Datasets](#add-custom-datasets)
 
 ## Getting Started
 
@@ -98,6 +101,15 @@ artifact_dir = artifact.download()
 ```
 
 View generated data examples for [Txt2Img](https://wandb.ai/lisadunlap/Text-2-Image), [Img2Img](https://wandb.ai/lisadunlap/Image-2-Image), and [InstructPix2Pix](https://wandb.ai/lisadunlap/InstructPix2Pix).
+
+## Checkpoints
+
+All of our runs, checkpoints, and captions are on WandB. We reran all experiments with the cleaned repo so results may be slightly different than those in the paper.
+* [Cub2011](https://wandb.ai/clipinvariance/ALIA-Cub2011)
+* [iWildCam Subset](https://wandb.ai/clipinvariance/ALIA-iWildCamMini)
+* [Waterbirds](https://wandb.ai/clipinvariance/ALIA-Waterbirds)
+
+Seriously, Weights and Biases, send me a care package; I'm giving you some serious promo here. 
 
  ## Add Custom Datasets
 

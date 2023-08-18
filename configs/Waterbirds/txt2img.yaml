@@ -1,0 +1,19 @@
+base_config: configs/Waterbirds/base.yaml # config to inheit params from (should be dataset specific)
+
+name: Waterbirds-Txt2img # name of dataset
+
+data: 
+  base_dataset: Waterbirds
+  extra_dataset: BasicDataset
+  extra_root: /home/lisabdunlap/ALIA/diffusion_generated_data/txt2img/Waterbirds/an_iNaturalist_photo_of_a_{}_bird_in_nature
+  extra_classes: ['Landbird', 'Waterbird']
+  base_root: /shared/lisabdunlap/vl-attention/data/waterbird_complete95_forest2water2
+
+filter:
+  model: ViT-L/14 # CLIP model
+  prompt: "a photo of a bird"
+  negative_prompts: ["a photo of an object", "artwork of a bird", "a photo of geometric shapes", "a photo", "an image", "a painting of a bird"]
+  load: True # set this to true after you comput the embeddings once 
+  per_img: False # set this to true if you are doing an img2img method
+  checkpoint_name: ckpt-Waterbirds-none-filtered-resnet50-0-0.001-0.0001/best.pth
+  filtered_path: /home/lisabdunlap/ALIA/filtering_results/Waterbirds-Txt2img/filtered_idxs/semantic_kept.npy

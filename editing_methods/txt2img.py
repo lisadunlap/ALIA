@@ -18,6 +18,7 @@ from args import Txt2ImgArgs
 
 prompts = {
     "Cub2011": "a iNaturalist photo of a {} bird.",
+    "Waterbirds": "a photo of a {} bird.",
     "iWildCamMini": "a camera trap photo of {} in the wild.",
     "Planes": "a photo of a {} airplane.",
 }
@@ -38,7 +39,7 @@ def main(args):
         pipe = StableDiffusionPipeline.from_pretrained(args.model, torch_dtype=torch.float16, requires_safety_checker=False, safety_checker=None).to("cuda")
 
     print("getting dataset...")
-    trainset, _, _, _ = get_dataset(args.dataset, transform=None, val_transform=None)
+    trainset, _, _, _ = get_dataset(args.dataset, transform=None, val_transform=None, root=args.data_dir)
 
 
     pattern = r'[0-9]'
@@ -46,6 +47,7 @@ def main(args):
     print(f"Class names: {classnames}")
 
     for c in classnames:
+        print("c ", c, args.dataset)
         prompt = prompts[args.dataset].format(c) if args.prompt is None else args.prompt.format(c)
 
         # this is a hack for Cub
