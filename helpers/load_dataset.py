@@ -20,7 +20,7 @@ from datasets.base import *
 from datasets.wilds import WILDS, WILDSDiffusion, Wilds
 from datasets.cub import Cub2011, Cub2011Painting, Cub2011Diffusion, Cub2011Seg, newCub2011
 from datasets.planes import Planes
-from cutmix.cutmix import CutMix
+#from cutmix.cutmix import CutMix
 
 def crop_wilds(image):
     return crop(image, 10, 0, 400, 448)
@@ -170,8 +170,8 @@ def get_filtered_dataset(args, transform, val_transform):
         print(f"Added extra data with class counts {Counter(dataset.targets)}")
         trainset = CombinedDataset([trainset, dataset])
 
-        if args.data.augmentation == 'cutmix': # hacky way to add cutmix augmentation
-            trainset = CutMix(trainset, num_class=len(trainset.classes), beta=1.0, prob=0.5, num_mix=2).dataset
+#        if args.data.augmentation == 'cutmix': # hacky way to add cutmix augmentation
+#            trainset = CutMix(trainset, num_class=len(trainset.classes), beta=1.0, prob=0.5, num_mix=2).dataset
     return trainset, valset, testset
 
 def get_edited_dataset(args, transform, full=False):
