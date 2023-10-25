@@ -32,7 +32,7 @@ class Cub2011(torch.utils.data.Dataset):
         self.split = split
         self.group_names = CUB_DOMAINS
 
-        with open(f'{root}/CUB-200-Painting/classes.txt') as f:
+        with open(f'{root}/CUB_200_2011/classes.txt') as f:
             lines = f.readlines()
         self.classes = [l.replace('\n', '').split('.')[-1].replace('_', ' ') for l in lines]
         self._load_metadata()
