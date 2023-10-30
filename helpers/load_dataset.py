@@ -16,9 +16,8 @@ from collections import Counter
 import datasets
 from datasets.Waterbirds import Waterbirds
 from datasets.base import *
-# from wilds.datasets.iwildcam_dataset import IWildCamDataset
 from datasets.wilds import WILDS
-from datasets.cub import Cub2011, newCub2011
+from datasets.cub import Cub2011
 from datasets.planes import Planes
 from cutmix.cutmix import CutMix
 
@@ -115,16 +114,6 @@ def get_dataset(dataset_name, transform, val_transform, root='./data', embedding
         testset = Waterbirds(root=root, split='test', transform=val_transform)
         if dataset_name == 'WaterbirdsExtra':
             trainset = CombinedDataset([trainset, extraset])
-
-        # print the group counts for train, val, and test
-        print('---------------------------------')
-        print('---------------------------------')
-        print("train", Counter(trainset.groups))
-        print("val", Counter(valset.groups))
-        print("test", Counter(testset.groups))
-        print('extra', Counter(extraset.groups))
-        print('---------------------------------')
-        print('---------------------------------')
     elif dataset_name == "iWildCamMini" or dataset_name == "iWildCamMiniExtra":
         trainset = WILDS(root=f'{root}/iwildcam_v2.0/train', split='train', transform=transform)
         valset = WILDS(root=f'{root}/iwildcam_v2.0/train', split='val', transform=val_transform)
@@ -132,23 +121,10 @@ def get_dataset(dataset_name, transform, val_transform, root='./data', embedding
         extraset = WILDS(root=f'{root}/iwildcam_v2.0/train', split='train_extra', transform=transform)
         if dataset_name == 'iWildCamMiniExtra':
             trainset = CombinedDataset([trainset, extraset])
-    elif dataset_name == "iWildCamMiniExtraBigger":
-        trainset = WILDS(root=f'{root}/iwildcam_v2.0/train', split='train', transform=transform)
-        valset = WILDS(root=f'{root}/iwildcam_v2.0/train', split='val', transform=val_transform)
-        testset = WILDS(root=f'{root}/iwildcam_v2.0/train', split='test', transform=val_transform)
-        extraset = WILDS(root=f'{root}/iwildcam_v2.0/train', split='slightly_bigger_extra', transform=transform)
-        trainset = CombinedDataset([trainset, extraset])
     elif dataset_name == 'Cub2011' or dataset_name == 'Cub2011Extra':
         trainset = Cub2011(root=root, subset=False, split='train', transform=transform)
         valset = Cub2011(root=root, split='val', transform=val_transform)
         extraset = Cub2011(root=root, subset=False, split='extra', transform=transform)
-        testset = valset
-        if dataset_name == 'Cub2011Extra':
-            trainset = CombinedDataset([trainset, extraset])
-    elif dataset_name == 'newCub2011' or dataset_name == 'newCub2011Extra':
-        trainset = newCub2011(root=root,  split='train', transform=transform)
-        valset = newCub2011(root=root, split='val', transform=val_transform)
-        extraset = newCub2011(root=root, split='extra', transform=transform)
         testset = valset
         if dataset_name == 'Cub2011Extra':
             trainset = CombinedDataset([trainset, extraset])
