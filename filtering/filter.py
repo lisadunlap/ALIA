@@ -302,8 +302,10 @@ preds, conf = get_pred_and_conf(train_data)
 conf_thresh = get_confident_thresholds(train_data['labels'].numpy(), train_data['logits'].cpu().numpy())
 print('conf_thresh', conf_thresh)
 aug_preds, aug_conf = get_pred_and_conf(aug_data)
-conf_correct_idxs = np.where((aug_conf > conf_thresh[aug_preds]) & (aug_preds == aug_data['labels'].numpy()))[0]
-conf_incorrect_idxs = np.where((aug_conf > conf_thresh[aug_preds]) & (aug_preds != aug_data['labels'].numpy()))[0]
+# conf_correct_idxs = np.where((aug_conf > conf_thresh[aug_preds]) & (aug_preds == aug_data['labels'].numpy()))[0]
+# conf_incorrect_idxs = np.where((aug_conf > conf_thresh[aug_preds]) & (aug_preds != aug_data['labels'].numpy()))[0]
+conf_correct_idxs = np.where((aug_conf > conf_thresh[aug_data['labels'].numpy()]) & (aug_preds == aug_data['labels'].numpy()))[0]
+conf_incorrect_idxs = np.where((aug_conf > conf_thresh[aug_data['labels'].numpy()]) & (aug_preds != aug_data['labels'].numpy()))[0]
 
 print(f"Number of too easy examples: {len(conf_correct_idxs)}")
 filtered_labels = [dataset.samples[i][1] for i in conf_correct_idxs]

@@ -11,8 +11,8 @@ resume: false
 checkpoint_name: false
 
 data:
-  base_root: /shared/lisabdunlap/data
-  embedding_root: /shared/lisabdunlap/dataset_understanding/embeddings # precomputed clip embeddings
+  base_root: ./data
+  embedding_root: ./embeddings # precomputed clip embeddings
   batch: 128
   augmentation: false # set to name of traditional augmentation method (cutmix, augmix, etc.)
   filter: true # apply image filtering

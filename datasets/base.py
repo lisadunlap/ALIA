@@ -32,7 +32,6 @@ def filter_data(dataset, text, negative_text = ["a photo of an object", "a photo
     model, preprocess = clip.load("ViT-L/14", device="cuda")
     texts = clip.tokenize([text] + negative_text).to("cuda")
 
-    # trainset = Cub2011Diffusion(root='/shared/lisabdunlap/data/txt2img/cub', subset=False, transform=preprocess)  
     loader = torch.utils.data.DataLoader(dataset, batch_size=128, shuffle=False, num_workers=4)
     sim, ret = [], []
     with torch.no_grad():
@@ -60,7 +59,8 @@ class CombinedDataset(torch.utils.data.Dataset):
             self.idx_to_dataset.extend([j] * len(d))
             self.idx_mapping.extend([i for i in range(len(d))])
             curr += len(d)
-        
+        print(self.datasets)
+        print(self.datasets[0].classes, self.datasets[1].classes)
         assert len(datasets[0].classes) == len(datasets[1].classes) # only works for two datasets rn
         self.samples = np.concatenate([d.samples for d in datasets])
         self.samples = [(s[0], int(s[1])) for s in self.samples]
@@ -82,7 +82,7 @@ class CombinedDataset(torch.utils.data.Dataset):
         fig, axs = plt.subplots(1, len(self.datasets), figsize=(20, 20), constrained_layout=True)
         imgs = []
         for i, d in enumerate(self.datasets):
-            img, label, _, _ = d[idx]
+            img, label, _ = d[idx]
             print(d.samples[idx][0])
             imgs.append(img)
             axs[i].imshow(img)

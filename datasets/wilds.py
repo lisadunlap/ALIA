@@ -47,7 +47,6 @@ class WILDS:
     Specific subset of WILDS containing 6 classes and 2 test locations.
     """
     def __init__(self, root='/work/datasets/iwildcam_v2.0/train', split='train', transform=None):
-        # self.full_dataset = wilds.get_dataset(dataset="iwildcam", root_dir='/shared/lisabdunlap/data')
         self.root = root
         self.df = pd.read_csv(f'./data/iwildcam_v2.0/{split}_subset.csv')
         # self.df = pd.read_csv(f'/work/lisabdunlap/DatasetUnderstanding/data/{split}_subset.csv')

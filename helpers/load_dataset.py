@@ -14,13 +14,11 @@ from torchvision.transforms.functional import crop
 from collections import Counter
 
 import datasets
-from datasets.Waterbirds import Waterbirds, WaterbirdsInverted
+from datasets.Waterbirds import Waterbirds
 from datasets.base import *
-# from wilds.datasets.iwildcam_dataset import IWildCamDataset
-from datasets.wilds import WILDS, WILDSDiffusion, Wilds
-from datasets.cub import Cub2011, Cub2011Painting, Cub2011Diffusion, Cub2011Seg, newCub2011
-from datasets.planes import Planes
-#from cutmix.cutmix import CutMix
+from datasets.wilds import WILDS
+from datasets.cub import Cub2011
+from cutmix.cutmix import CutMix
 
 def crop_wilds(image):
     return crop(image, 10, 0, 400, 448)
@@ -97,7 +95,7 @@ def get_val_transform(dataset_name="Imagenet", model=None):
     
     return transforms.Compose(transform_list)
 
-def get_dataset(dataset_name, transform, val_transform, root='/shared/lisabdunlap/data', embedding_root=None):
+def get_dataset(dataset_name, transform, val_transform, root='./data', embedding_root=None):
     if dataset_name == "Waterbirds" or dataset_name == 'WaterbirdsExtra': # change these data paths
         trainset = Waterbirds(root=root, split='train', transform=transform)
         train_ids = trainset.get_subset(groups=[0,3], num_per_class=1000)
@@ -128,20 +126,6 @@ def get_dataset(dataset_name, transform, val_transform, root='/shared/lisabdunla
         extraset = Cub2011(root=root, subset=False, split='extra', transform=transform)
         testset = valset
         if dataset_name == 'Cub2011Extra':
-            trainset = CombinedDataset([trainset, extraset])
-    elif dataset_name == 'newCub2011' or dataset_name == 'newCub2011Extra':
-        trainset = newCub2011(root=root,  split='train', transform=transform)
-        valset = newCub2011(root=root, split='val', transform=val_transform)
-        extraset = newCub2011(root=root, split='extra', transform=transform)
-        testset = valset
-        if dataset_name == 'Cub2011Extra':
-            trainset = CombinedDataset([trainset, extraset])
-    elif dataset_name == 'Planes' or dataset_name == 'PlanesExtra':
-        trainset = Planes(split='train', transform=transform)
-        valset = Planes(split='val', transform=val_transform)
-        extraset = Planes(split='extra', transform=transform)
-        testset = Planes(split='test', transform=val_transform)
-        if dataset_name == 'PlanesExtra':
             trainset = CombinedDataset([trainset, extraset])
     if embedding_root:
         trainset = EmbeddingDataset(os.path.join(embedding_root, dataset_name), trainset, split='train')

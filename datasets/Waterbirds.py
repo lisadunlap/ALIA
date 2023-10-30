@@ -63,38 +63,3 @@ class Waterbirds:
         df['class'] = [f.split('/')[0] for f in df.img_filename]
         df = df[df.group.isin(groups)]
         return df.groupby('class').apply(lambda x: x.sample(n=num_per_class) if len(x) > num_per_class else x.sample(n=len(x))).reset_index(drop=True)['orig_idx'].values
-
-class WaterbirdsInverted(dsets.ImageFolder):
-    """ Dataset for the Waterbirds dataset generated with textual inversion."""
-
-    def __init__(self, root, transform=None):
-        super().__init__(root, transform)
-        self.group_names = ['land_landbird', 'land_waterbird', 'water_landbird', 'water_waterbird']
-        # self.classes = ['land', 'water']
-        df = pd.read_csv("/shared/lisabdunlap/vl-attention/data/waterbird_complete95_forest2water2/metadata.csv")
-        df['class'] = df['img_filename'].apply(lambda x: x.split('/')[0])
-        class_map = df.drop_duplicates(subset=['class'])[['class', 'y']].values
-        class_map = {c[0]: c[1] for c in class_map} # mapping bird species to land or water
-        class_to_idx = [class_map[c] for c in self.classes]
-        self.old_labels = [s[1] for s in self.samples]
-        self.species = self.classes
-        self.classes = ['land', 'water']
-        self.samples = [(f, class_to_idx[class_idx]) for f, class_idx in self.samples]
-        self.targets = [s[1] for s in self.samples]
-        self.groups, self.places = [], [] # create group labels
-        for (filename, label) in self.samples:
-            if label == 0:
-                self.groups.append(1)
-                self.places.append(1)
-            else:
-                self.groups.append(2)
-                self.places.append(0)
-        self.group_weights = get_counts(self.groups) # returns group weight for XE
-        self.class_weights = get_counts([s[1] for s in self.samples]) # returns class weight for XE
-
-    def __getitem__(self, idx):
-        img, label = super().__getitem__(idx)
-        group = self.groups[idx]
-        place = self.places[idx]
-        species = self.species[self.old_labels[idx]]
-        return img, label, group
