@@ -14,11 +14,11 @@ from torchvision.transforms.functional import crop
 from collections import Counter
 
 import datasets
-from datasets.Waterbirds import Waterbirds, WaterbirdsInverted
+from datasets.Waterbirds import Waterbirds
 from datasets.base import *
 # from wilds.datasets.iwildcam_dataset import IWildCamDataset
-from datasets.wilds import WILDS, WILDSDiffusion, Wilds
-from datasets.cub import Cub2011, Cub2011Painting, Cub2011Diffusion, Cub2011Seg, newCub2011
+from datasets.wilds import WILDS
+from datasets.cub import Cub2011, newCub2011
 from datasets.planes import Planes
 from cutmix.cutmix import CutMix
 
@@ -97,7 +97,7 @@ def get_val_transform(dataset_name="Imagenet", model=None):
     
     return transforms.Compose(transform_list)
 
-def get_dataset(dataset_name, transform, val_transform, root='/shared/lisabdunlap/data', embedding_root=None):
+def get_dataset(dataset_name, transform, val_transform, root='./data', embedding_root=None):
     if dataset_name == "Waterbirds" or dataset_name == 'WaterbirdsExtra': # change these data paths
         trainset = Waterbirds(root=root, split='train', transform=transform)
         train_ids = trainset.get_subset(groups=[0,3], num_per_class=1000)
@@ -115,6 +115,16 @@ def get_dataset(dataset_name, transform, val_transform, root='/shared/lisabdunla
         testset = Waterbirds(root=root, split='test', transform=val_transform)
         if dataset_name == 'WaterbirdsExtra':
             trainset = CombinedDataset([trainset, extraset])
+
+        # print the group counts for train, val, and test
+        print('---------------------------------')
+        print('---------------------------------')
+        print("train", Counter(trainset.groups))
+        print("val", Counter(valset.groups))
+        print("test", Counter(testset.groups))
+        print('extra', Counter(extraset.groups))
+        print('---------------------------------')
+        print('---------------------------------')
     elif dataset_name == "iWildCamMini" or dataset_name == "iWildCamMiniExtra":
         trainset = WILDS(root=f'{root}/iwildcam_v2.0/train', split='train', transform=transform)
         valset = WILDS(root=f'{root}/iwildcam_v2.0/train', split='val', transform=val_transform)
@@ -122,6 +132,12 @@ def get_dataset(dataset_name, transform, val_transform, root='/shared/lisabdunla
         extraset = WILDS(root=f'{root}/iwildcam_v2.0/train', split='train_extra', transform=transform)
         if dataset_name == 'iWildCamMiniExtra':
             trainset = CombinedDataset([trainset, extraset])
+    elif dataset_name == "iWildCamMiniExtraBigger":
+        trainset = WILDS(root=f'{root}/iwildcam_v2.0/train', split='train', transform=transform)
+        valset = WILDS(root=f'{root}/iwildcam_v2.0/train', split='val', transform=val_transform)
+        testset = WILDS(root=f'{root}/iwildcam_v2.0/train', split='test', transform=val_transform)
+        extraset = WILDS(root=f'{root}/iwildcam_v2.0/train', split='slightly_bigger_extra', transform=transform)
+        trainset = CombinedDataset([trainset, extraset])
     elif dataset_name == 'Cub2011' or dataset_name == 'Cub2011Extra':
         trainset = Cub2011(root=root, subset=False, split='train', transform=transform)
         valset = Cub2011(root=root, split='val', transform=val_transform)

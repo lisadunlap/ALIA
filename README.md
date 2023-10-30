@@ -15,7 +15,7 @@ Welcome to the official repository for the paper ["Diversify Your Vision Dataset
 
 **UPDATE:** We are currently rerunning experiments due to a bug in our checkpointing (shoutout to EyalMuchaeli for pointing it out), so the new numbers will be updated in the paper once all the experiments are done. If you want to track our newest results, here are the wandb projects to [CUB](https://wandb.ai/clipinvariance/ALIA-Cub2011), [iWildCam](https://wandb.ai/clipinvariance/ALIA-iWildCamMini), and [Planes](https://wandb.ai/clipinvariance/ALIA-Planes). Note that the traditional augmentation baselines for CUB now outperform ALIA and when running on a ResNet50, Txt2Img beats ALIA on Planes. Due to various issues with the Planes dataset, we have replaced it with the Waterbirds dataset.
 
-**NEW** We have added the [Waterbirds](https://github.com/kohpangwei/group_DRO) dataset(subsampled to exaggerate the real data gains but full dataset coming soon). We use the 95% bias split and use the 5% unbiased data as the extra set. Note that unlike the standard dataset, we make our val set biased as well (but our test set is unbiased).
+**NEW** We have added the [Waterbirds](https://github.com/kohpangwei/group_DRO) dataset(subsampled to exaggerate the real data gains but full dataset coming soon). We use the 95% bias split and use the 5% unbiased data as the extra set. Note that unlike the standard dataset, we make our val set biased as well (but our test set is unbiased). Full dataset can be either generated through [their repo]((https://github.com/kohpangwei/group_DRO)) or downloaded from [this Gdrive link](https://drive.google.com/file/d/14dVH5Dw56liz9c3dL8QYBh6TZHaiMSLb/view?usp=sharing)
 
 ## Table of Contents
 1. [Getting Started](#getting-started)
@@ -145,7 +145,7 @@ For example, suppose you want to add a typical PyTorch ImageFolder dataset like 
 Since we already have a wrapper for the ImageFolder class in [datasets/base.py](datasets/base.py), you can use that to add your dataset (like ImageNet) into the `get_dataset` function.
 
 ```python
-def get_dataset(dataset_name, transform, val_transform, root='/shared/lisabdunlap/data', embedding_root=None):
+def get_dataset(dataset_name, transform, val_transform, root='./data', embedding_root=None):
     .....
 
     elif dataset_name == 'ImageNet':

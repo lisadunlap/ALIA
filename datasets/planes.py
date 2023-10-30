@@ -6,6 +6,7 @@ from PIL import Image
 import numpy as np
 import pandas as pd
 import random
+from collections import Counter
 
 import torch.nn.functional as F
 import torchvision.transforms.functional as TF
@@ -14,22 +15,24 @@ from datasets.base import get_counts
 
 GROUP_NAMES_AIR_GROUND = np.array(['Airbus_ground', 'Airbus_air', 'Boeing_ground', 'Boeing_air'])
 GROUP_NAMES_GRASS_ROAD = np.array(['Airbus_grass', 'Airbus_road', 'Boeing_grass', 'Boeing_road'])
+GROUP_NAMES_ALL = np.array(['Airbus_air', 'Airbus_ground', 'Airbus_road', 'Boeing_air', 'Boeing_grass', 'Boeing_road'])
 
 def get_label_mapping():
     return np.array(['Airbus', 'Boeing'])
 
 class Planes:
 
-    def __init__(self, root='/shared/lisabdunlap/vl-attention', split='train', transform=None):
+    def __init__(self, root='./data', split='train', transform=None):
         self.class_labels = ['airbus', 'boeing']
         self.root = root
         self.transform = transform
         self.split = split
-        self.df = pd.read_csv('./data/planes_ext.csv')
+        self.df = pd.read_csv('./data/planes.csv')
         if self.split in ['train', 'test']:
             self.df = self.df[self.df['Split'] == split] if split != 'extra' else self.df[self.df['Split'] == 'val']
         if self.split == 'val':
             self.df = self.df[self.df['Split'] == split][::2]
+            self.df = self.df[self.df['groups'].isin([0,2,3,4])]
         if self.split == 'extra': # remove unbiased examples
             # talk half of val set and move it to train
             self.df = self.df[self.df['Split'] == 'val'][1::2]
@@ -39,11 +42,12 @@ class Planes:
         self.targets = self.labels
         self.domain_classes = sorted(np.unique(self.df['Ground']))
         self.domains = np.array([self.domain_classes.index(d) for d in self.df['Ground']])
-        self.groups = np.array(self.df['Group'])
+        self.groups = np.array(self.df['groups'])
+        print(f"Group counts: {Counter(self.groups)}")
         self.class_weights = get_counts(self.labels)
         self.samples = list(zip(self.filenames, self.labels))
         self.class_names = ['airbus', 'boeing']
-        self.group_names = GROUP_NAMES_AIR_GROUND 
+        self.group_names = GROUP_NAMES_ALL 
         self.classes = ['airbus', 'boeing']
         print('PLANES {}'.format(split.upper()))
         print('LEN DATASET: {}'.format(len(self.filenames)))
