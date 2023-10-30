@@ -18,7 +18,6 @@ from datasets.Waterbirds import Waterbirds
 from datasets.base import *
 from datasets.wilds import WILDS
 from datasets.cub import Cub2011
-from datasets.planes import Planes
 from cutmix.cutmix import CutMix
 
 def crop_wilds(image):
@@ -127,13 +126,6 @@ def get_dataset(dataset_name, transform, val_transform, root='./data', embedding
         extraset = Cub2011(root=root, subset=False, split='extra', transform=transform)
         testset = valset
         if dataset_name == 'Cub2011Extra':
-            trainset = CombinedDataset([trainset, extraset])
-    elif dataset_name == 'Planes' or dataset_name == 'PlanesExtra':
-        trainset = Planes(split='train', transform=transform)
-        valset = Planes(split='val', transform=val_transform)
-        extraset = Planes(split='extra', transform=transform)
-        testset = Planes(split='test', transform=val_transform)
-        if dataset_name == 'PlanesExtra':
             trainset = CombinedDataset([trainset, extraset])
     if embedding_root:
         trainset = EmbeddingDataset(os.path.join(embedding_root, dataset_name), trainset, split='train')
